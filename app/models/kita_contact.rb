@@ -1,0 +1,2 @@
+class KitaContact < ApplicationRecord
+end

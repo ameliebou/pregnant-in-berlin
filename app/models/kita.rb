@@ -1,0 +1,2 @@
+class Kita < ApplicationRecord
+end
