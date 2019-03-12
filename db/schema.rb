@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_11_171823) do
+ActiveRecord::Schema.define(version: 2019_03_12_145937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "kita", force: :cascade do |t|
+  create_table "kindergartens", force: :cascade do |t|
     t.string "name"
     t.text "address"
     t.string "phone_number"
@@ -26,6 +26,11 @@ ActiveRecord::Schema.define(version: 2019_03_11_171823) do
     t.integer "minimum_age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "open_time_mon"
+    t.string "open_time_tue"
+    t.string "open_time_wed"
+    t.string "open_time_thu"
+    t.string "open_time_fri"
   end
 
   create_table "kita_contacts", force: :cascade do |t|

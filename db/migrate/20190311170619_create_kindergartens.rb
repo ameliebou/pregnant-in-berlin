@@ -1,6 +1,6 @@
-class CreateKita < ActiveRecord::Migration[5.2]
+class CreateKindergartens < ActiveRecord::Migration[5.2]
   def change
-    create_table :kita do |t|
+    create_table :kindergartens do |t|
       t.string :name
       t.text :address
       t.string :phone_number
