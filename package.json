@@ -2,7 +2,8 @@
   "name": "pregnant-in-berlin",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^4.0.2"
+    "@rails/webpacker": "^4.0.2",
+    "mapbox-gl": "^0.53.1"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.2.1"
