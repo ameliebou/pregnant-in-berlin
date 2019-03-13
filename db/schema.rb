@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_171639) do
+ActiveRecord::Schema.define(version: 2019_03_13_144536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2019_03_12_171639) do
     t.string "open_time_thu"
     t.string "open_time_fri"
     t.string "url"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   create_table "kita_contacts", force: :cascade do |t|
