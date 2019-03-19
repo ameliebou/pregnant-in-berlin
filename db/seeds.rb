@@ -1,9 +1,9 @@
+require 'open-uri'
+require 'nokogiri'
 
 Kindergarten.destroy_all
 
 puts 'Destroyed former seed'
-require 'open-uri'
-require 'nokogiri'
 
 url = 'https://www.berlin.de/sen/jugend/familie-und-kinder/kindertagesbetreuung/kitas/verzeichnis/ListeKitas.aspx?aktSuchbegriff='
 
@@ -38,6 +38,7 @@ kita_urls.each do |url|
   kita.minimum_age = kita_array[3].to_i
 
   kita.save!
+  sleep 1
 end
 
 puts 'Successful seed!'
