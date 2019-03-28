@@ -1,0 +1,11 @@
+.footer-box {
+  width: 100vw;
+  height: 70px;
+  background-color: $light-pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+}
