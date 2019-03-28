@@ -1,11 +1,29 @@
 .banner {
   height: 100vh;
-  background-color: $light-gray;
-  padding-top: 30vh;
-  h1 {
-    color: $pink;
-    padding-bottom: 5vh;
-    font-size: 80px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  .banner-title {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    h1 {
+      position: relative;
+      left: -50%;
+      color: $pink;
+      padding-bottom: 5vh;
+      font-size: 80px;
+    }
+  }
+  .banner-subline {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    p {
+      position: relative;
+      left: -50%;
+      font-size: 24px;
+    }
   }
 }
 
