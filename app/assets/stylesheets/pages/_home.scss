@@ -3,27 +3,43 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  .banner-title {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    h1 {
-      position: relative;
-      left: -50%;
-      color: $pink;
-      padding-bottom: 5vh;
-      font-size: 80px;
-    }
+}
+
+.banner-title {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  h1 {
+    position: relative;
+    left: -50%;
+    color: $pink;
+    padding-bottom: 5vh;
+    font-size: 80px;
   }
-  .banner-subline {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    p {
-      position: relative;
-      left: -50%;
-      font-size: 24px;
-    }
+}
+
+.banner-subline {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  p {
+    position: relative;
+    left: -50%;
+    font-size: 24px;
+  }
+}
+
+.banner-links {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  .banner-links-container {
+    position: relative;
+    left: -50%;
+    font-size: 18px;
+    background-color: #f9dce2b3;
+    padding: 30px 90px;
+    border-radius: 5px;
   }
 }
 

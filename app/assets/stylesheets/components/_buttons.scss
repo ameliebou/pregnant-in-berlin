@@ -1,0 +1,13 @@
+.btn-pib {
+  color: $dark-blue;
+  background-color: rgba(250,250,250,0.7);
+  padding: 5px 15px;
+  border: 1px solid $dark-blue;
+  border-radius: 10px;
+  transition: all ease 0.4s;
+  &:hover {
+    background-color: rgba(250,250,250,0.5);
+    text-decoration: none;
+    color: $dark-blue;
+  }
+}
