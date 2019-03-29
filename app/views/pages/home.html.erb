@@ -1,7 +1,8 @@
 <div class="banner text-center" style="background-image: linear-gradient(rgba(234,234,234,0.4),rgba(255,255,255,0.4)), url(https://images.unsplash.com/photo-1444838639505-f9042c5d2386?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80)">
 
   <div class="banner-title">
-    <h1>Pregnant in Berlin</h1>
+    <h1 class="d-none d-sm-block">Pregnant in Berlin</h1>
+    <h2 class="d-block d-sm-none">Pregnant in Berlin</h2>
   </div>
 
   <div class="banner-subline">
@@ -10,11 +11,51 @@
 
   <div class="banner-links">
     <div class="banner-links-container">
-      <p>Looking for?</p>
-      <%= link_to 'Midwives', '#', class:'btn-pib' %>
-      <%= link_to 'Kitas', kindergartens_path, class:'btn-pib' %>
-      <%= link_to 'Pediatricians', '#', class:'btn-pib' %>
+      <div>
+        <p>Looking for?</p>
+        <%= link_to 'Midwives', '#', class:'btn-pib' %>
+        <%= link_to 'Kitas', kindergartens_path, class:'btn-pib' %>
+        <%= link_to 'Pediatricians', '#', class:'btn-pib' %>
+      </div>
+      <div class="mt-4 timeline-link">
+        <p>Check our pregnancy timeline and see what to look for at each step of your pregnancy</p>
+        <%= link_to 'Timeline', "/#timeline", class:'btn-pib' %>
+      </div>
     </div>
   </div>
+</div>
 
+<div id="timeline">
+  <div class="timeline-header">
+    <h2>Timeline</h2>
+    <p>What to look for at which point of the pregnancy</p>
+  </div>
+
+  <div class="timeline-content">
+     <ul class="timeline">
+        <li>
+          <div class="timeline-badge"><i class="fas fa-baby"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+            </div>
+            <div class="timeline-body">
+              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="timeline-inverted">
+          <div class="timeline-badge warning"><i class="fas fa-clinic-medical"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Mussum ipsum cacilds</h4>
+            </div>
+            <div class="timeline-body">
+              <p>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+  </div>
 </div>
