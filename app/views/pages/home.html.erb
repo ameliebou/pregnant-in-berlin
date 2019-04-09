@@ -1,25 +1,53 @@
 <div class="banner text-center" style="background-image: linear-gradient(rgba(234,234,234,0.4),rgba(255,255,255,0.4)), url(https://images.unsplash.com/photo-1444838639505-f9042c5d2386?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80)">
 
-  <div class="banner-title">
-    <h1 class="d-none d-sm-block">Pregnant in Berlin</h1>
-    <h2 class="d-block d-sm-none">Pregnant in Berlin</h2>
-  </div>
+  <div class="d-none d-sm-block">
+    <div class="banner-title">
+      <h1>Pregnant in Berlin</h1>
+    </div>
 
-  <div class="banner-subline">
-    <p>The guide book for expecting parents living in Berlin</p>
-  </div>
+    <div class="banner-subline">
+      <p>The guide book for expecting parents living in Berlin</p>
+    </div>
 
-  <div class="banner-links">
-    <div class="banner-links-container">
-      <div>
-        <p>Looking for?</p>
-        <%= link_to 'Midwives', '#', class:'btn-pib' %>
-        <%= link_to 'Kitas', kindergartens_path, class:'btn-pib' %>
-        <%= link_to 'Pediatricians', '#', class:'btn-pib' %>
+    <div class="banner-links">
+      <div class="banner-links-container">
+        <div>
+          <p>Looking for?</p>
+          <%= link_to 'Midwives', '#', class:'btn-pib' %>
+          <%= link_to 'Kitas', kindergartens_path, class:'btn-pib' %>
+          <%= link_to 'Pediatricians', '#', class:'btn-pib' %>
+        </div>
+        <div class="mt-4 timeline-link">
+          <p>Check our pregnancy timeline and see what to look for at each step of your pregnancy</p>
+          <%= link_to 'Timeline', "/#timeline", class:'btn-pib' %>
+        </div>
       </div>
-      <div class="mt-4 timeline-link">
-        <p>Check our pregnancy timeline and see what to look for at each step of your pregnancy</p>
-        <%= link_to 'Timeline', "/#timeline", class:'btn-pib' %>
+    </div>
+  </div>
+
+  <div class="d-block d-sm-none">
+    <div class="banner-title-small">
+      <h2>Pregnant in Berlin</h2>
+    </div>
+
+    <div class="banner-subline-small">
+      <p>The guide book for expecting parents living in Berlin</p>
+    </div>
+
+    <div class="banner-links-small">
+      <div class="banner-links-container">
+        <div>
+          <p>Looking for?</p>
+          <div class="d-block">
+            <div class="mb-3"><%= link_to 'Midwives', '#', class:'btn-pib' %></div>
+            <div class="mb-3"><%= link_to 'Kitas', kindergartens_path, class:'btn-pib' %></div>
+            <div><%= link_to 'Pediatricians', '#', class:'btn-pib' %></div>
+          </div>
+        </div>
+        <div class="mt-4 timeline-link">
+          <p>Check our pregnancy timeline and see what to look for at each step of your pregnancy</p>
+          <%= link_to 'Timeline', "/#timeline", class:'btn-pib' %>
+        </div>
       </div>
     </div>
   </div>
@@ -33,7 +61,7 @@
 
   <div class="timeline-content">
      <ul class="timeline">
-        <li class="d-none">
+        <li class="d-none d-sm-block">
           <div class="timeline-badge pink">1</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
@@ -45,7 +73,7 @@
           </div>
         </li>
 
-        <li class="d-none timeline-inverted">
+        <li class="d-none d-sm-block timeline-inverted">
           <div class="timeline-badge yellow">2</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
@@ -57,7 +85,7 @@
           </div>
         </li>
 
-        <li class="d-none">
+        <li class="d-none d-sm-block">
           <div class="timeline-badge dark-blue">3</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
@@ -69,7 +97,7 @@
           </div>
         </li>
 
-        <li class="d-none timeline-inverted">
+        <li class="d-none d-sm-block timeline-inverted">
           <div class="timeline-badge pink">4</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
@@ -81,7 +109,7 @@
           </div>
         </li>
 
-        <li class="d-none">
+        <li class="d-none d-sm-block">
           <div class="timeline-badge yellow">5</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
@@ -93,7 +121,7 @@
           </div>
         </li>
 
-        <li class="d-none timeline-inverted">
+        <li class="d-none d-sm-block timeline-inverted">
           <div class="timeline-badge dark-blue">6</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
@@ -105,7 +133,7 @@
           </div>
         </li>
 
-        <li class="d-none">
+        <li class="d-none d-sm-block">
           <div class="timeline-badge pink">7</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
@@ -117,7 +145,7 @@
           </div>
         </li>
 
-        <li class="d-none timeline-inverted">
+        <li class="d-none d-sm-block timeline-inverted">
           <div class="timeline-badge yellow">8</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
@@ -129,7 +157,7 @@
           </div>
         </li>
 
-        <li class="d-none">
+        <li class="d-none d-sm-block">
           <div class="timeline-badge dark-blue">9</div>
           <div class="timeline-panel">
             <div class="timeline-heading">
