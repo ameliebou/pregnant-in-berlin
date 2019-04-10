@@ -80,6 +80,10 @@
 #timeline {
   min-height: 100vh;
   padding: 20px;
+  padding-bottom: 0;
+  ul {
+    margin-bottom: 0;
+  }
 }
 
 .timeline-header {
