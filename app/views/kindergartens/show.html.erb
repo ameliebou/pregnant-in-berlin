@@ -1,12 +1,22 @@
 <div class="container">
   <h1><%= @kindergarten.name %></h1>
 
-  <div class="kita-contact">
-    <p><i class="fas fa-map-marker-alt"></i> <%= @kindergarten.address %></p>
-    <p><i class="fas fa-phone"></i> <%= @kindergarten.phone_number %></p>
-    <p><i class="far fa-envelope"></i> <%= @kindergarten.email %></p>
-    <% unless @kindergarten.url == "" %>
-      <p><i class="fas fa-angle-double-right"></i> <%= link_to 'Go to website', @kindergarten.url %></p>
-    <% end %>
+  <div class="d-flex">
+    <div class="kita-contact">
+      <p><i class="fas fa-map-marker-alt"></i> <%= @kindergarten.address %></p>
+      <p><i class="fas fa-phone"></i> <%= @kindergarten.phone_number %></p>
+      <p><i class="far fa-envelope"></i> <%= @kindergarten.email %></p>
+      <% unless @kindergarten.url == "" %>
+        <p><i class="fas fa-angle-double-right"></i> <%= link_to 'Go to website', @kindergarten.url %></p>
+      <% end %>
+    </div>
+
+    <div
+      id="map"
+      style="width: 400px;
+      height: 300px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
   </div>
 </div>

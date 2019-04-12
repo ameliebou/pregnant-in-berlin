@@ -12,5 +12,9 @@ class KindergartensController < ApplicationController
 
   def show
     @kindergarten = Kindergarten.find(params[:id])
+    @markers = [{
+      lng: @kindergarten.longitude,
+      lat: @kindergarten.latitude
+    }]
   end
 end
