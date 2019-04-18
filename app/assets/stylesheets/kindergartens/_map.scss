@@ -7,6 +7,21 @@
   height: 100%;
   width: 25%;
   background-color: white;
+  padding: 10px;
+}
+
+.search-title {
+  padding: 5px 0;
+}
+
+.form-container {
+  padding: 10px;
+  border: 1px solid $light-gray;
+  border-radius: 3px;
+  box-shadow: 0px 0px 5px gray;
+  p {
+    margin: 5px 0 0 0;
+  }
 }
 
 .mapboxgl-popup {

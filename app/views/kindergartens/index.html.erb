@@ -1,34 +1,40 @@
 <div class="window d-flex">
   <div class="search-container">
+    <div class="search-title">
+      <h2>Filter your search for kitas</h2>
+    </div>
 
-    <%= form_tag kindergartens_path, method: :get do %>
-      <%= text_field_tag :address,
-        params[:address],
-        class: "form-control",
-        placeholder: "What's your address?"
-      %>
-      <div>
-        <%= radio_button_tag(:radius, "1") %>
-        <%= label_tag(:radius_1, "1") %>
-      </div>
-      <div>
-        <%= radio_button_tag(:radius, "2") %>
-        <%= label_tag(:radius_2, "2") %>
-      </div>
-      <div>
-        <%= radio_button_tag(:radius, "3") %>
-        <%= label_tag(:radius_3, "3") %>
-      </div>
-      <div>
-        <%= radio_button_tag(:radius, "4") %>
-        <%= label_tag(:radius_4, "4") %>
-      </div>
-      <div>
-        <%= radio_button_tag(:radius, "5") %>
-        <%= label_tag(:radius_5, "5") %>
-      </div>
-      <%= submit_tag "Search" %>
-    <% end %>
+    <div class="form-container">
+      <%= form_tag kindergartens_path, method: :get do %>
+        <%= text_field_tag :address,
+          params[:address],
+          class: "form-control",
+          placeholder: "What's your address?"
+        %>
+        <p>Search radius (in km):</p>
+        <div>
+          <%= radio_button_tag(:radius, "1") %>
+          <%= label_tag(:radius_1, "1") %>
+        </div>
+        <div>
+          <%= radio_button_tag(:radius, "2") %>
+          <%= label_tag(:radius_2, "2") %>
+        </div>
+        <div>
+          <%= radio_button_tag(:radius, "3") %>
+          <%= label_tag(:radius_3, "3") %>
+        </div>
+        <div>
+          <%= radio_button_tag(:radius, "4") %>
+          <%= label_tag(:radius_4, "4") %>
+        </div>
+        <div>
+          <%= radio_button_tag(:radius, "5") %>
+          <%= label_tag(:radius_5, "5") %>
+        </div>
+        <%= submit_tag "Search", class: "btn-pib" %>
+      <% end %>
+    </div>
   </div>
 
   <div
