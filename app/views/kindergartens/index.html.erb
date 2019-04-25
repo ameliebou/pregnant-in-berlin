@@ -12,28 +12,14 @@
           placeholder: "What's your address?"
         %>
         <p>Search radius (in km):</p>
+        <%= select_tag :radius,
+          "<option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>". html_safe, class:"form-control" %>
 
-        <div>
-          <%= radio_button_tag(:radius, "1") %>
-          <%= label_tag(:radius_1, "1") %>
-        </div>
-        <div>
-          <%= radio_button_tag(:radius, "2") %>
-          <%= label_tag(:radius_2, "2") %>
-        </div>
-        <div>
-          <%= radio_button_tag(:radius, "3") %>
-          <%= label_tag(:radius_3, "3") %>
-        </div>
-        <div>
-          <%= radio_button_tag(:radius, "4") %>
-          <%= label_tag(:radius_4, "4") %>
-        </div>
-        <div>
-          <%= radio_button_tag(:radius, "5") %>
-          <%= label_tag(:radius_5, "5") %>
-        </div>
-        <%= submit_tag "Search", class: "btn-pib" %>
+        <%= submit_tag "Search", class: "btn-pib mt-2" %>
       <% end %>
     </div>
   </div>
