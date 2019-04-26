@@ -8,6 +8,7 @@ gem 'devise'
 gem 'font-awesome-sass', '~> 5.5.0'
 gem 'geocoder'
 gem 'jquery-rails'
+gem 'mapbox-sdk'
 gem 'sassc-rails'
 gem 'simple_form'
 

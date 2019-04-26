@@ -1,5 +1,8 @@
 require 'open-uri'
 require 'nokogiri'
+require 'mapbox-sdk'
+
+Mapbox.access_token = ENV['MAPBOX_API_KEY']
 
 Kindergarten.destroy_all
 
@@ -37,8 +40,18 @@ kita_urls.each do |url|
   kita.places_over_three = kita_array[2].to_i
   kita.minimum_age = kita_array[3].to_i
 
+  if kita.address.include? "/"
+    kita.address.gsub!("/", "-")
+  end
+
+  unless kita.name == ""
+    coordinates = Mapbox::Geocoder.geocode_forward(kita.address)
+    kita.latitude = coordinates.first["features"].first["center"].last
+    kita.longitude = coordinates.first["features"].first["center"].first
+  end
+
   kita.save!
-  sleep 1
+  sleep 0.1
 end
 
 puts 'Successful seed!'
