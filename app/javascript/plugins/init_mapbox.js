@@ -21,7 +21,7 @@ const initMapbox = () => {
     markers.forEach((marker) => {
       const el = document.createElement('div');
       el.className = 'marker';
-      const popup = new mapboxgl.Popup({ offset: 25 }).setHTML(marker.infoWindow);
+      const popup = new mapboxgl.Popup({ offset: 6 }).setHTML(marker.infoWindow);
       new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)

@@ -40,9 +40,10 @@
 }
 
 .marker {
-  background-image: url('marker-dark-blue');
-  background-size: cover;
-  width: 33px;
-  height: 50px;
+  background-color: $dark-blue;
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
   cursor: pointer;
 }
