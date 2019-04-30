@@ -7,3 +7,15 @@
     margin-bottom: 0;
   }
 }
+
+.map-container {
+  width: 400px;
+  height: 300px;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    width: 100%;
+    height: 300px;
+  }
+}
