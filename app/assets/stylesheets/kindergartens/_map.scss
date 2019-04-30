@@ -29,7 +29,7 @@
 }
 
 .search-container-small {
-  height: 20%;
+  height: 15%;
   width: 100vw;
 
   .search-title {
@@ -38,8 +38,6 @@
       margin: 0;
     }
   }
-
-
   .form-container {
     padding: 0 5px;
     .form-control {
@@ -47,7 +45,7 @@
     }
   }
   #radius {
-    width: 100px;
+    width: 58px;
   }
 }
 
@@ -79,6 +77,6 @@
 @media (max-width: 768px) {
   #map {
     width: 100vw;
-    height: 80%;
+    height: 85%;
   }
 }
