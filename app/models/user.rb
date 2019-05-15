@@ -6,6 +6,4 @@ class User < ApplicationRecord
 
   has_many :kita_contacts
   has_many :kindergartens, through: :kita_contacts
-
-  validates :username, presence: true
 end
