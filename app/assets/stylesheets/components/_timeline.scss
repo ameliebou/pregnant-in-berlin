@@ -107,6 +107,14 @@
 .timeline-body > ul {
   margin-bottom: 0;
 }
+.timeline-body a {
+  color: $pink;
+  transition: all ease 0.4s;
+  &:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+}
 .timeline-body > p + p {
   margin-top: 5px;
 }
