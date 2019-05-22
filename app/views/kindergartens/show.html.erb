@@ -12,6 +12,7 @@
         <p><i class="fas fa-angle-double-right"></i> <%= link_to 'Go to website', @kindergarten.url %></p>
       <% end %>
     </div>
+
     <div class="map-container">
       <div
         id="map"
@@ -21,5 +22,24 @@
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
     </div>
+  </div>
+
+  <div>
+    <h4>Contact chronology with <%= @kindergarten.name %></h4>
+    <% @kita_contacts.each do |kita_contact| %>
+    <div>
+      <% if kita_contact.contact_type == "call" %>
+        <i class="fas fa-phone"></i>
+      <% elsif kita_contact.contact_type == "email" %>
+        <i class="fas fa-at"></i>
+      <% elsif kita_contact.contact_type == "visit" %>
+        <i class="fas fa-walking"></i>
+      <% elsif kita_contact.contact_type == "other" %>
+        <i class="fas fa-th-list"></i>
+      <% end %>
+      <%= kita_contact.created_at.strftime("%a %e %B - %H:%M") %>
+      <%= kita_contact.note %>
+    </div>
+    <% end %>
   </div>
 </div>
