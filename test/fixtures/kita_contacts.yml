@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: 2019-03-11 18:08:49
-  type: 
+  contact_type: MyString
   note: MyText
+  user: one
+  kindergarten: one
 
 two:
-  date: 2019-03-11 18:08:49
-  type: 
+  contact_type: MyString
   note: MyText
+  user: two
+  kindergarten: two
