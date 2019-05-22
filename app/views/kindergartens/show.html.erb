@@ -2,7 +2,7 @@
   <h1><%= @kindergarten.name %></h1>
 
   <div class="d-block d-sm-flex">
-    <div class="kita-contact">
+    <div class="kita-details">
       <p><i class="fas fa-map-marker-alt"></i> <%= @kindergarten.address %></p>
       <p><i class="fas fa-phone"></i> <%= @kindergarten.phone_number %></p>
       <% unless @kindergarten.email == "" %>
@@ -18,28 +18,35 @@
         id="map"
         style="width: 100%;
         height: 100%;"
+        class="kita-show-map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
     </div>
   </div>
 
-  <div>
+  <div class="mt-4">
     <h4>Contact chronology with <%= @kindergarten.name %></h4>
     <% @kita_contacts.each do |kita_contact| %>
-    <div>
-      <% if kita_contact.contact_type == "call" %>
-        <i class="fas fa-phone"></i>
-      <% elsif kita_contact.contact_type == "email" %>
-        <i class="fas fa-at"></i>
-      <% elsif kita_contact.contact_type == "visit" %>
-        <i class="fas fa-walking"></i>
-      <% elsif kita_contact.contact_type == "other" %>
-        <i class="fas fa-th-list"></i>
-      <% end %>
-      <%= kita_contact.created_at.strftime("%a %e %B - %H:%M") %>
-      <%= kita_contact.note %>
-    </div>
+      <div class="kita-contacts d-flex">
+        <div class="kita-contacts-item col-xs-1">
+          <% if kita_contact.contact_type == "call" %>
+            <i class="fas fa-phone"></i>
+          <% elsif kita_contact.contact_type == "email" %>
+            <i class="fas fa-at"></i>
+          <% elsif kita_contact.contact_type == "visit" %>
+            <i class="fas fa-walking"></i>
+          <% elsif kita_contact.contact_type == "other" %>
+            <i class="fas fa-th-list"></i>
+          <% end %>
+        </div>
+        <div class="kita-contacts-item col-xs-2">
+          <%= kita_contact.created_at.strftime("%a %e %B - %H:%M") %>
+        </div>
+        <div class="kita-contacts-item col-xs-9">
+          <%= kita_contact.note %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
