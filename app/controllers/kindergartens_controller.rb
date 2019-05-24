@@ -1,4 +1,6 @@
 class KindergartensController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     if params[:address].present?
       @kindergartens = Kindergarten.near(params[:address], params[:radius])
