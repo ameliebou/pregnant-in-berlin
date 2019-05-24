@@ -28,15 +28,9 @@
   <div class="mt-4">
     <h4>Contact chronology with <%= @kindergarten.name %></h4>
 
-    <%= simple_form_for [@kindergarten, @kita_contact] do |f| %>
-      <%= f.input :contact_type %>
-      <%= f.input :note %>
-      <%= f.submit "add a contact", class: "btn-pib" %>
-    <% end %>
-
     <% @kita_contacts.each do |kita_contact| %>
       <div class="kita-contacts d-flex">
-        <div class="kita-contacts-item col-xs-1">
+        <div class="kita-contacts-item col-sm-1 text-center">
           <% if kita_contact.contact_type == "call" %>
             <i class="fas fa-phone"></i>
           <% elsif kita_contact.contact_type == "email" %>
@@ -47,13 +41,20 @@
             <i class="fas fa-th-list"></i>
           <% end %>
         </div>
-        <div class="kita-contacts-item col-xs-2">
+        <div class="kita-contacts-item col-sm-2">
           <%= kita_contact.created_at.strftime("%a %e %B - %H:%M") %>
         </div>
-        <div class="kita-contacts-item col-xs-9">
+        <div class="kita-contacts-item col-sm-9">
           <%= kita_contact.note %>
         </div>
       </div>
     <% end %>
+
+    <div class="my-4">
+      <h5>Add a new contact:</h5>
+
+      <%= render "kita_contacts/new" %>
+    </div>
+
   </div>
 </div>
