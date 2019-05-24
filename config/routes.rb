@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   get '/', to: 'pages#home'
   root to: 'pages#home'
 
-  resources :kindergartens, only: [:index, :show]
+  resources :kindergartens, only: [:index, :show] do
+    resources :kita_contacts, only: [ :new, :create ]
+  end
 end

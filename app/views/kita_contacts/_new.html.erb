@@ -1,0 +1,5 @@
+<%= simple_form_for [@kita, @kita_contact] do |f| %>
+  <%= f.input :contact_type %>
+  <%= f.input :note %>
+  <%= f.submit "add a contact", class: "btn-pib" %>
+<% end %>

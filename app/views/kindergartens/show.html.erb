@@ -27,6 +27,13 @@
 
   <div class="mt-4">
     <h4>Contact chronology with <%= @kindergarten.name %></h4>
+
+    <%= simple_form_for [@kindergarten, @kita_contact] do |f| %>
+      <%= f.input :contact_type %>
+      <%= f.input :note %>
+      <%= f.submit "add a contact", class: "btn-pib" %>
+    <% end %>
+
     <% @kita_contacts.each do |kita_contact| %>
       <div class="kita-contacts d-flex">
         <div class="kita-contacts-item col-xs-1">
