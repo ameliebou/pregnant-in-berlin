@@ -8,6 +8,17 @@
   }
 }
 
+.kita-details-contacts {
+  border-bottom: 1px solid $light-gray;
+}
+
+.opening-times > div > div {
+  border-right: 1px solid $light-gray;
+  &:last-child {
+    border: none;
+  }
+}
+
 .map-container {
   width: 400px;
   height: 300px;
