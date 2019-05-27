@@ -15,3 +15,12 @@ p {
 h2 {
   color: $dark-blue;
 }
+
+.pib-text-link > a {
+  color: $pink;
+  transition: all ease 0.4s;
+  &:hover {
+    opacity: 0.7;
+    text-decoration: none;
+  }
+}

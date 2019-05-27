@@ -1,5 +1,13 @@
 class KitaContactsController < ApplicationController
   before_action :set_kita
+  skip_before_action :set_kita, only: :index
+
+  def index
+    @kita_contacts = KitaContact.all.where(user: current_user)
+    @kitas = []
+    @kita_contacts.each { |kc| @kitas << kc.kindergarten }
+    @kitas.uniq!.sort!
+  end
 
   def new
     @kita_contact = KitaContact.new

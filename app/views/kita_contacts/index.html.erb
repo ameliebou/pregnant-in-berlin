@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>All my kita contacts</h1>
+  <% @kitas.each do |k| %>
+    <div class="mt-4">
+      <h3 class="pib-text-link"><%= link_to k.name, kindergarten_path(k) %></h3>
+      <% k.kita_contacts.where(user: current_user).order(created_at: :desc).each do |kc| %>
+        <div class="kita-contacts d-flex">
+          <div class="kita-contacts-item col-sm-1 text-center">
+            <% if kc.contact_type == "call" %>
+              <i class="fas fa-phone"></i>
+            <% elsif kc.contact_type == "email" %>
+              <i class="fas fa-at"></i>
+            <% elsif kc.contact_type == "visit" %>
+              <i class="fas fa-walking"></i>
+            <% elsif kc.contact_type == "other" %>
+              <i class="fas fa-th-list"></i>
+            <% end %>
+          </div>
+          <div class="kita-contacts-item col-sm-2">
+            <%= kc.created_at.strftime("%a %e %B - %H:%M") %>
+          </div>
+          <div class="kita-contacts-item col-sm-9">
+            <%= kc.note %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

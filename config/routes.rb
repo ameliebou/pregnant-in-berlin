@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :kindergartens, only: [:index, :show] do
     resources :kita_contacts, only: [ :new, :create ]
   end
+
+  resources :kita_contacts, only: :index
 end
