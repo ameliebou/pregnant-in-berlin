@@ -62,22 +62,22 @@
 
             <div class="d-flex">
               <div class="col-sm-4 pl-0">Minimum age: </div>
-              <div class="col-sm-5"><%= @kindergarten.minimum_age %> months old</div>
-            </div class="d-flex">
-            <div class="d-flex">
+              <div class="col-sm-5 text-center"><%= @kindergarten.minimum_age %> months old</div>
+            </div>
+            <div class="d-flex border-top">
               <div class="col-sm-4 pl-0">Total places: </div>
-              <div class="col-sm-5"><%= @kindergarten.places %></div>
-            </div class="d-flex">
-            <div class="d-flex">
+              <div class="col-sm-5 text-center"><%= @kindergarten.places %></div>
+            </div>
+            <div class="d-flex border-top">
               <div class="col-sm-4 pl-0">Total places under 3 y.o.: </div>
-              <div class="col-sm-5"><%= @kindergarten.places_under_three %></div>
-            </div class="d-flex">
-            <div class="d-flex">
+              <div class="col-sm-5 my-auto text-center"><%= @kindergarten.places_under_three %></div>
+            </div>
+            <div class="d-flex border-top">
               <div class="col-sm-4 pl-0">Total places over 3 y.o.: </div>
-              <div class="col-sm-5"><%= @kindergarten.places_over_three %></div>
-            </div class="d-flex">
+              <div class="col-sm-5 my-auto text-center"><%= @kindergarten.places_over_three %></div>
+            </div>
 
-            <p>Opening times:</p>
+            <div class="border-top">Opening times:</div>
 
             <div class="opening-times">
               <div class="d-flex">
@@ -118,7 +118,7 @@
     </div>
   </div>
 
-  <div class="mt-4">
+  <div class="mt-5">
     <h4>Contact history with <%= @kindergarten.name %></h4>
 
     <% @kita_contacts.each do |kita_contact| %>
