@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/', to: 'pages#home'
   get '/kitas', to: 'pages#kitas'
+  get '/about', to: 'pages#about'
   root to: 'pages#home'
 
   resources :kindergartens, only: [:index, :show] do

@@ -16,11 +16,22 @@ h2 {
   color: $dark-blue;
 }
 
-.pib-text-link > a {
+.pib-text-link {
   color: $pink;
   transition: all ease 0.4s;
   &:hover {
     opacity: 0.7;
+    text-decoration: none;
+  }
+}
+
+.pib-text-link-light {
+  color: white;
+  opacity: 0.8;
+  transition: all ease 0.4s;
+  &:hover {
+    color: $light-blue;
+    opacity: 0.5;
     text-decoration: none;
   }
 }
