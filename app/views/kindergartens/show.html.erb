@@ -1,166 +1,168 @@
 <% content_for :meta_title, "#{@kindergarten.name} - #{DEFAULT_META["meta_product_name"]}" %>
 
 <div class="container">
-  <h1 class="mt-3"><%= @kindergarten.name %></h1>
+  <div class="static-container">
+    <h1 class="mt-3"><%= @kindergarten.name %></h1>
 
-  <div class="d-block d-sm-flex">
-    <div class="kita-details">
+    <div class="d-block d-sm-flex">
+      <div class="kita-details">
 
-      <div class="kita-details-contacts">
-        <p><i class="fas fa-map-marker-alt"></i> <%= @kindergarten.address %></p>
-        <p><i class="fas fa-phone"></i> <%= @kindergarten.phone_number %></p>
-        <% unless @kindergarten.email == "" %>
-          <p><i class="far fa-envelope"></i> <%= @kindergarten.email %></p>
-        <% end %>
-        <% unless @kindergarten.url == "" %>
-          <p><i class="fas fa-angle-double-right"></i> <%= link_to 'Go to website', @kindergarten.url %></p>
-        <% end %>
-      </div>
-
-      <div class="d-none d-sm-block">
-
-        <div class="d-flex">
-          <div class="col-sm-4 pl-0">Minimum age: </div>
-          <div class="col-sm-5"><%= @kindergarten.minimum_age %> months old</div>
-        </div class="d-flex">
-        <div class="d-flex border-top">
-          <div class="col-sm-4 pl-0">Total places: </div>
-          <div class="col-sm-5"><%= @kindergarten.places %></div>
-        </div class="d-flex">
-        <div class="d-flex border-top">
-          <div class="col-sm-4 pl-0">Total places under 3 y.o.: </div>
-          <div class="col-sm-5"><%= @kindergarten.places_under_three %></div>
-        </div class="d-flex">
-        <div class="d-flex border-top">
-          <div class="col-sm-4 pl-0">Total places over 3 y.o.: </div>
-          <div class="col-sm-5"><%= @kindergarten.places_over_three %></div>
-        </div class="d-flex">
-
-        <p class="border-top">Opening times:</p>
-        <div class="opening-times">
-          <div class="d-flex">
-            <div class="col-sm-2 text-center">Mon</div>
-            <div class="col-sm-2 text-center">Tue</div>
-            <div class="col-sm-2 text-center">Wed</div>
-            <div class="col-sm-2 text-center">Thu</div>
-            <div class="col-sm-2 text-center">Fri</div>
-          </div>
-          <div class="d-flex">
-            <div class="col-sm-2 pr-5"><%= @kindergarten.open_time_mon %></div>
-            <div class="col-sm-2 pr-5"><%= @kindergarten.open_time_tue %></div>
-            <div class="col-sm-2 pr-5"><%= @kindergarten.open_time_wed %></div>
-            <div class="col-sm-2 pr-5"><%= @kindergarten.open_time_thu %></div>
-            <div class="col-sm-2 pr-5"><%= @kindergarten.open_time_fri %></div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="d-block d-sm-none">
-        <p>
-          <a class="btn btn-pib mt-1" data-toggle="collapse" href="#collapseKitaDetails" aria-expanded="false" role="button" aria-controls="collapseKitaDetails">More details about the kita</a>
-        </p>
-        <div class="collapse" id="collapseKitaDetails">
-
-            <div class="d-flex">
-              <div class="col-sm-4 pl-0">Minimum age: </div>
-              <div class="col-sm-5 text-center"><%= @kindergarten.minimum_age %> months old</div>
-            </div>
-            <div class="d-flex border-top">
-              <div class="col-sm-4 pl-0">Total places: </div>
-              <div class="col-sm-5 text-center"><%= @kindergarten.places %></div>
-            </div>
-            <div class="d-flex border-top">
-              <div class="col-sm-4 pl-0">Total places under 3 y.o.: </div>
-              <div class="col-sm-5 my-auto text-center"><%= @kindergarten.places_under_three %></div>
-            </div>
-            <div class="d-flex border-top">
-              <div class="col-sm-4 pl-0">Total places over 3 y.o.: </div>
-              <div class="col-sm-5 my-auto text-center"><%= @kindergarten.places_over_three %></div>
-            </div>
-
-            <div class="border-top">Opening times:</div>
-
-            <div class="opening-times">
-              <div class="d-flex">
-                <div class="col-sm-4 pl-0">Mon</div>
-                <div class="col-sm-5"><%= @kindergarten.open_time_mon %></div>
-              </div>
-              <div class="d-flex">
-                <div class="col-sm-4 pl-0">Tue</div>
-                <div class="col-sm-5"><%= @kindergarten.open_time_tue %></div>
-              </div>
-              <div class="d-flex">
-                <div class="col-sm-4 pl-0">Wed</div>
-                <div class="col-sm-5"><%= @kindergarten.open_time_wed %></div>
-              </div>
-              <div class="d-flex">
-                <div class="col-sm-4 pl-0">Thu</div>
-                <div class="col-sm-5"><%= @kindergarten.open_time_thu %></div>
-              </div>
-              <div class="d-flex">
-                <div class="col-sm-4 pl-0">Fri</div>
-                <div class="col-sm-5"><%= @kindergarten.open_time_fri %></div>
-              </div>
-            </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="map-container">
-      <div
-        id="map"
-        style="width: 100%;
-        height: 100%;"
-        class="kita-show-map"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-      ></div>
-    </div>
-  </div>
-
-  <div class="mt-5">
-    <h4>Contact history with <%= @kindergarten.name %></h4>
-
-    <% @kita_contacts.each do |kita_contact| %>
-      <div class="kita-contacts d-flex">
-        <div class="kita-contacts-item col-sm-1 text-center">
-          <% if kita_contact.contact_type == "call" %>
-            <i class="fas fa-phone"></i>
-          <% elsif kita_contact.contact_type == "email" %>
-            <i class="fas fa-at"></i>
-          <% elsif kita_contact.contact_type == "visit" %>
-            <i class="fas fa-walking"></i>
-          <% elsif kita_contact.contact_type == "other" %>
-            <i class="fas fa-th-list"></i>
+        <div class="kita-details-contacts">
+          <p><i class="fas fa-map-marker-alt"></i> <%= @kindergarten.address %></p>
+          <p><i class="fas fa-phone"></i> <%= @kindergarten.phone_number %></p>
+          <% unless @kindergarten.email == "" %>
+            <p><i class="far fa-envelope"></i> <%= @kindergarten.email %></p>
+          <% end %>
+          <% unless @kindergarten.url == "" %>
+            <p><i class="fas fa-angle-double-right"></i> <%= link_to 'Go to website', @kindergarten.url %></p>
           <% end %>
         </div>
-        <div class="kita-contacts-item col-sm-2">
-          <%= kita_contact.created_at.strftime("%a %e %B - %H:%M") %>
+
+        <div class="d-none d-sm-block">
+
+          <div class="d-flex">
+            <div class="col-sm-4 pl-0">Minimum age: </div>
+            <div class="col-sm-5"><%= @kindergarten.minimum_age %> months old</div>
+          </div class="d-flex">
+          <div class="d-flex border-top">
+            <div class="col-sm-4 pl-0">Total places: </div>
+            <div class="col-sm-5"><%= @kindergarten.places %></div>
+          </div class="d-flex">
+          <div class="d-flex border-top">
+            <div class="col-sm-4 pl-0">Total places under 3 y.o.: </div>
+            <div class="col-sm-5"><%= @kindergarten.places_under_three %></div>
+          </div class="d-flex">
+          <div class="d-flex border-top">
+            <div class="col-sm-4 pl-0">Total places over 3 y.o.: </div>
+            <div class="col-sm-5"><%= @kindergarten.places_over_three %></div>
+          </div class="d-flex">
+
+          <p class="border-top">Opening times:</p>
+          <div class="opening-times">
+            <div class="d-flex">
+              <div class="col-sm-2 text-center">Mon</div>
+              <div class="col-sm-2 text-center">Tue</div>
+              <div class="col-sm-2 text-center">Wed</div>
+              <div class="col-sm-2 text-center">Thu</div>
+              <div class="col-sm-2 text-center">Fri</div>
+            </div>
+            <div class="d-flex">
+              <div class="col-sm-2 pr-5"><%= @kindergarten.open_time_mon %></div>
+              <div class="col-sm-2 pr-5"><%= @kindergarten.open_time_tue %></div>
+              <div class="col-sm-2 pr-5"><%= @kindergarten.open_time_wed %></div>
+              <div class="col-sm-2 pr-5"><%= @kindergarten.open_time_thu %></div>
+              <div class="col-sm-2 pr-5"><%= @kindergarten.open_time_fri %></div>
+            </div>
+          </div>
+
         </div>
-        <div class="kita-contacts-item col-sm-9">
-          <%= kita_contact.note %>
+
+        <div class="d-block d-sm-none">
+          <p>
+            <a class="btn btn-pib mt-1" data-toggle="collapse" href="#collapseKitaDetails" aria-expanded="false" role="button" aria-controls="collapseKitaDetails">More details about the kita</a>
+          </p>
+          <div class="collapse" id="collapseKitaDetails">
+
+              <div class="d-flex">
+                <div class="col-sm-4 pl-0">Minimum age: </div>
+                <div class="col-sm-5 text-center"><%= @kindergarten.minimum_age %> months old</div>
+              </div>
+              <div class="d-flex border-top">
+                <div class="col-sm-4 pl-0">Total places: </div>
+                <div class="col-sm-5 text-center"><%= @kindergarten.places %></div>
+              </div>
+              <div class="d-flex border-top">
+                <div class="col-sm-4 pl-0">Total places under 3 y.o.: </div>
+                <div class="col-sm-5 my-auto text-center"><%= @kindergarten.places_under_three %></div>
+              </div>
+              <div class="d-flex border-top">
+                <div class="col-sm-4 pl-0">Total places over 3 y.o.: </div>
+                <div class="col-sm-5 my-auto text-center"><%= @kindergarten.places_over_three %></div>
+              </div>
+
+              <div class="border-top">Opening times:</div>
+
+              <div class="opening-times">
+                <div class="d-flex">
+                  <div class="col-sm-4 pl-0">Mon</div>
+                  <div class="col-sm-5"><%= @kindergarten.open_time_mon %></div>
+                </div>
+                <div class="d-flex">
+                  <div class="col-sm-4 pl-0">Tue</div>
+                  <div class="col-sm-5"><%= @kindergarten.open_time_tue %></div>
+                </div>
+                <div class="d-flex">
+                  <div class="col-sm-4 pl-0">Wed</div>
+                  <div class="col-sm-5"><%= @kindergarten.open_time_wed %></div>
+                </div>
+                <div class="d-flex">
+                  <div class="col-sm-4 pl-0">Thu</div>
+                  <div class="col-sm-5"><%= @kindergarten.open_time_thu %></div>
+                </div>
+                <div class="d-flex">
+                  <div class="col-sm-4 pl-0">Fri</div>
+                  <div class="col-sm-5"><%= @kindergarten.open_time_fri %></div>
+                </div>
+              </div>
+
+          </div>
         </div>
       </div>
-    <% end %>
 
-    <div class="my-4">
-      <h5>Add a new contact:</h5>
-
-      <% if current_user %>
-
-        <%= render "kita_contacts/new" %>
-
-      <% else %>
-
-        <p class="font-dark-blue">Log in or Sign up to be able to add notes about your contact history</p>
-
-        <%= link_to "Log in", new_user_session_path, class: "btn-pib" %>
-        <%= link_to "Sign up", new_user_registration_path, class: "btn-pib" %>
-
-      <% end %>
+      <div class="map-container">
+        <div
+          id="map"
+          style="width: 100%;
+          height: 100%;"
+          class="kita-show-map"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+      </div>
     </div>
 
+    <div class="mt-5">
+      <h4>Contact history with <%= @kindergarten.name %></h4>
+
+      <% @kita_contacts.each do |kita_contact| %>
+        <div class="kita-contacts d-flex">
+          <div class="kita-contacts-item col-sm-1 text-center">
+            <% if kita_contact.contact_type == "call" %>
+              <i class="fas fa-phone"></i>
+            <% elsif kita_contact.contact_type == "email" %>
+              <i class="fas fa-at"></i>
+            <% elsif kita_contact.contact_type == "visit" %>
+              <i class="fas fa-walking"></i>
+            <% elsif kita_contact.contact_type == "other" %>
+              <i class="fas fa-th-list"></i>
+            <% end %>
+          </div>
+          <div class="kita-contacts-item col-sm-2">
+            <%= kita_contact.created_at.strftime("%a %e %B - %H:%M") %>
+          </div>
+          <div class="kita-contacts-item col-sm-9">
+            <%= kita_contact.note %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="my-4">
+        <h5>Add a new contact:</h5>
+
+        <% if current_user %>
+
+          <%= render "kita_contacts/new" %>
+
+        <% else %>
+
+          <p class="font-dark-blue">Log in or Sign up to be able to add notes about your contact history</p>
+
+          <%= link_to "Log in", new_user_session_path, class: "btn-pib" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn-pib" %>
+
+        <% end %>
+      </div>
+
+    </div>
   </div>
 </div>
