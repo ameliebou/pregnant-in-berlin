@@ -6,7 +6,7 @@ class KitaContactsController < ApplicationController
     @kita_contacts = KitaContact.all.where(user: current_user)
     @kitas = []
     @kita_contacts.each { |kc| @kitas << kc.kindergarten }
-    @kitas.uniq!.sort!
+    @kitas.uniq!.sort! unless @kitas.uniq!.nil?
   end
 
   def new
