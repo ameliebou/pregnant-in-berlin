@@ -19,6 +19,22 @@
           <option>4</option>
           <option>5</option>". html_safe, class:"form-control" %>
 
+        <p>Minimum age (in months):</p>
+        <%= select_tag :minimum_age,
+          "<option>all</option>
+          <option>< 6</option>
+          <option>6 - 12</option>
+          <option>12 - 18</option>
+          <option>> 18</option>". html_safe, class:"form-control" %>
+
+        <p>Kita size (in nb of total kids)</p>
+        <%= select_tag :places,
+          "<option>all</option>
+          <option>< 20</option>
+          <option>20 - 50</option>
+          <option>50 - 100</option>
+          <option>> 100</option>". html_safe, class:"form-control" %>
+
         <%= submit_tag "Search", class: "btn-pib mt-2" %>
       <% end %>
     </div>

@@ -1,5 +1,5 @@
 .window {
-  height: 90vh;
+  min-height: calc(100vh - 60px);
   width: 100vw;
 }
 
@@ -23,15 +23,15 @@
     }
   }
 
-  #radius {
+  #radius, #minimum_age, #places {
     width: 100px;
   }
 }
 
 .search-container-small {
-  height: 15%;
+  height: 80px;
   width: 100vw;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 
   .search-title {
     padding: 5px;
@@ -45,14 +45,14 @@
       width: 200px;
     }
   }
-  #radius {
+  #radius, #minimum_age, #places {
     width: 58px;
   }
 }
 
 #map {
-  width: 100vw;
-  height: 80vh;
+  width: 75%;
+  height: calc(100vh - 60px);
 }
 
 .mapboxgl-popup {
@@ -78,7 +78,7 @@
 @media (max-width: 768px) {
   #map {
     width: 100vw;
-    height: 70%;
+    height: calc(100vh - 150px);
   }
   #map.kita-show-map {
     height: 50% !important;
