@@ -3,7 +3,8 @@ class KindergartensController < ApplicationController
 
   def index
     if params[:address].present?
-      @kindergartens = Kindergarten.near(params[:address], params[:radius])
+      address = params[:address] + " Berlin"
+      @kindergartens = Kindergarten.near(address, params[:radius])
     else
       @kindergartens = Kindergarten.where.not(latitude: nil, longitude: nil)
     end
