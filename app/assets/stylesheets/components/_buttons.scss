@@ -11,3 +11,15 @@
     color: $dark-blue;
   }
 }
+
+.btn-pib-dark {
+  color: white;
+  background-color: $dark-blue;
+  padding: 5px 15px;
+  border-radius: 10px;
+  transition: all ease 0.4s;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.5;
+  }
+}
