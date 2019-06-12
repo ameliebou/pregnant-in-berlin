@@ -11,29 +11,29 @@
           class: "form-control",
           placeholder: "What's your address?"
         %>
-        <p>Search radius (in km):</p>
-        <%= select_tag :radius,
-          "<option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>". html_safe, class:"form-control" %>
+        <p><button class="btn btn-pib mt-2" type="button" data-toggle="collapse" data-target="#collapseSearch" aria-expanded="false" aria-controls="collapseExample">
+          Additional filter options
+        </button></p>
+        <div class="collapse" id="collapseSearch">
+          <p>Search radius (in km):</p>
+          <%= select_tag :radius, options_for_select((1..5).to_a), class:"form-control" %>
 
-        <p>Minimum age (in months):</p>
-        <%= select_tag :minimum_age,
-          "<option>all</option>
-          <option>< 6</option>
-          <option>6 - 12</option>
-          <option>12 - 18</option>
-          <option>> 18</option>". html_safe, class:"form-control" %>
+          <p>Minimum age (in months):</p>
+          <%= select_tag :minimum_age,
+            "<option>all</option>
+            <option>< 6</option>
+            <option>6 - 12</option>
+            <option>12 - 18</option>
+            <option>> 18</option>". html_safe, class:"form-control" %>
 
-        <p>Kita size (in nb of total kids)</p>
-        <%= select_tag :places,
-          "<option>all</option>
-          <option>< 20</option>
-          <option>20 - 50</option>
-          <option>50 - 100</option>
-          <option>> 100</option>". html_safe, class:"form-control" %>
+          <p>Kita size (in nb of total kids)</p>
+          <%= select_tag :places,
+            "<option>all</option>
+            <option>< 20</option>
+            <option>20 - 50</option>
+            <option>50 - 100</option>
+            <option>> 100</option>". html_safe, class:"form-control" %>
+        </div>
 
         <%= submit_tag "Search", class: "btn-pib mt-2" %>
       <% end %>
@@ -52,13 +52,31 @@
           class: "form-control d-inline",
           placeholder: "What's your address?"
         %>
-        <%= select_tag :radius,
-          "<option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>". html_safe, class:"form-control d-inline" %>
-        <div class="d-inline"> km</div>
+        <div class="dropdown d-inline">
+          <button class="btn-pib d-inline dropdown-toggle" type="button" id="dropdownSearchButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Filter
+          </button>
+          <div class="dropdown-menu pl-2" aria-labelledby="dropdownSearchButton">
+            <p>Search radius (in km):</p>
+            <%= select_tag :radius, options_for_select((1..5).to_a), class:"form-control" %>
+
+            <p>Minimum age (in months):</p>
+            <%= select_tag :minimum_age,
+              "<option>all</option>
+              <option>< 6</option>
+              <option>6 - 12</option>
+              <option>12 - 18</option>
+              <option>> 18</option>". html_safe, class:"form-control" %>
+
+            <p>Kita size (in nb of total kids)</p>
+            <%= select_tag :places,
+              "<option>all</option>
+              <option>< 20</option>
+              <option>20 - 50</option>
+              <option>50 - 100</option>
+              <option>> 100</option>". html_safe, class:"form-control" %>
+          </div>
+        </div>
 
         <%= submit_tag "Go", class: "btn-pib d-inline" %>
       <% end %>
