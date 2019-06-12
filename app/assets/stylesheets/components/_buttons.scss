@@ -16,9 +16,11 @@
   color: white;
   background-color: $dark-blue;
   padding: 5px 15px;
+  border: 1px solid $dark-blue;
   border-radius: 10px;
   transition: all ease 0.4s;
   &:hover {
+    color: white;
     text-decoration: none;
     opacity: 0.5;
   }
