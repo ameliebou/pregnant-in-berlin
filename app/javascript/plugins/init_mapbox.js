@@ -19,14 +19,18 @@ const initMapbox = () => {
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
+      console.log(marker);
       const el = document.createElement('div');
-      el.className = 'marker';
+      if (marker.details.contacts.length === 0) {
+        el.className = 'marker';
+      } else {
+        el.className = 'marker-pink';
+      }
       const popup = new mapboxgl.Popup({ offset: 6 }).setHTML(marker.infoWindow);
-      const nar = new mapboxgl.Marker(el)
+      new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
-      console.log(nar)
     });
     fitMapToMarkers(map, markers);
   }

@@ -56,6 +56,9 @@ class KindergartensController < ApplicationController
     @kita_contacts = @kindergarten.kita_contacts.where(user: current_user).order(created_at: :desc)
     @kita_contact = KitaContact.new
     @markers = [{
+      details: {
+        contacts: @kindergarten.kita_contacts.where(user: current_user)
+      },
       lng: @kindergarten.longitude,
       lat: @kindergarten.latitude
     }]

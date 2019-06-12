@@ -75,6 +75,15 @@
   cursor: pointer;
 }
 
+.marker-pink {
+  background-color: $pink;
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   #map {
     width: 100vw;
