@@ -19,7 +19,6 @@ const initMapbox = () => {
     });
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
-      console.log(marker);
       const el = document.createElement('div');
       if (marker.details.contacts.length === 0) {
         el.className = 'marker';

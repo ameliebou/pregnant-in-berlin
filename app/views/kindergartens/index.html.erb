@@ -57,10 +57,10 @@
             Filter
           </button>
           <div class="dropdown-menu pl-2" aria-labelledby="dropdownSearchButton">
-            <p>Search radius (in km):</p>
+            <div>Search radius (in km):</div>
             <%= select_tag :radius, options_for_select((1..5).to_a), class:"form-control" %>
 
-            <p>Minimum age (in months):</p>
+            <div>Minimum age (in months):</div>
             <%= select_tag :minimum_age,
               "<option>all</option>
               <option>< 6</option>
@@ -68,7 +68,7 @@
               <option>12 - 18</option>
               <option>> 18</option>". html_safe, class:"form-control" %>
 
-            <p>Kita size (in nb of total kids)</p>
+            <div>Kita size (in nb of total kids)</div>
             <%= select_tag :places,
               "<option>all</option>
               <option>< 20</option>
