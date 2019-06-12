@@ -1,6 +1,6 @@
-const elements = document.querySelectorAll('a[href*="#"]');
 
 const smoothScrolling = () => {
+  const elements = document.querySelectorAll('a[href*="#"]');
   elements.forEach((element) => {
     element.addEventListener("click", (event) => {
       let hashval = element.getAttribute('href')

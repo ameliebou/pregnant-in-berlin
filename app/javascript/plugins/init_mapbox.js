@@ -22,10 +22,11 @@ const initMapbox = () => {
       const el = document.createElement('div');
       el.className = 'marker';
       const popup = new mapboxgl.Popup({ offset: 6 }).setHTML(marker.infoWindow);
-      new mapboxgl.Marker(el)
+      const nar = new mapboxgl.Marker(el)
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
+      console.log(nar)
     });
     fitMapToMarkers(map, markers);
   }
