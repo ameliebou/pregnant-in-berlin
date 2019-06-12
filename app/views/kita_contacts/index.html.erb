@@ -4,8 +4,16 @@
 
     <% if @kitas.empty? %>
 
-      <p><i>You don't have any kita details for the moment.</i></p>
-      <p><i>You can check the kitas near you on our map:</i></p>
+      <p><i>You don't have any kita details for the moment. You can check the kitas near you on our map by entering your address and clicking on 'Search"</i></p>
+
+      <%= form_tag kindergartens_path, method: :get, class:"mb-3" do %>
+        <%= text_field_tag :address,
+          params[:address],
+          class: "form-control",
+          placeholder: "What's your address?"
+        %>
+        <%= submit_tag "Search", class: "btn-pib mt-2" %>
+      <% end %>
 
     <% else %>
 
