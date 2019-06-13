@@ -9,6 +9,21 @@
     <p>Each kita is divided into two parts. The first one is the Kinderkrippe and takes care of children below the age of 3. But even if many kitas claim to accept children as young as 8 weeks old on their website, most of them are reluctant to have small babies and prefer to have children that are at least 1 year old. For children between the age of 3 and 6, the Kindergarten is where they will be cared for.</p>
     <p>Kitas come in all shapes and forms and parents should pay attention to certain elements before applying. For instance, each kita puts an emphasis on different aspects of education, among which are: languages (some kitas are officially bilingual or even multilingual), religion, integration, nature... Some also follow a certain educational concept such as Montessori or Waldorf.</p>
 
+    <div class="box-pib">
+      <h3>Kita finder</h3>
+      <p>Our website <strong>Pregnant in Berlin</strong> provides a tool that allows you to check the kitas in your area as well as to add notes and comments about the kitas you have contacted.</p>
+      <p>Check the kitas located around you by entering your address and clicking on 'Search'.</p>
+
+      <%= form_tag kindergartens_path, method: :get, class:"mb-3" do %>
+        <%= text_field_tag :address,
+          params[:address],
+          class: "form-control",
+          placeholder: "What's your address?"
+        %>
+        <%= submit_tag "Search", class: "btn-pib-dark mt-2" %>
+      <% end %>
+    </div>
+
     <h2>The Kita Gutschein</h2>
     <p>German states all have different regulations concerning children day care. Berlin offers a free day care system from which parents can benefit through a <i>Gutschein</i> (voucher). This Gutschein can be valid for <i>Halbstags</i> (4 to 5 hours a day), <i>Teilzeit</i> (5 to 7 hours a day), <i>Ganztags</i> (7 to 9 hours a day) or <i>Erweitere Ganztags</i> (more than 9 hours a day).</p>
     <p>The Gutschein are provided by the <i>Jugendamt</i>, which will ask from parents their need of day care. However, if the child is at least 1 year old, a Teilzeit Gutschein will be provided regardless of the parents' professional situation. Moreover, having access to day care passed the age of 1 is officially a right and legal actions can be pushed forward if the parents have not managed to find a spot.</p>
@@ -18,18 +33,6 @@
     <p>The <i>Tagesmütter</i> or <i>Tageseltern</i> (German equivalent to nannies) can take care of around 3 to 5 children at a time. Sometimes they pair up to be able to look after 6 to 10 kids. They accept children from a young age, but do not look after children older than 3 - parents will then need to find a kita for the remaining years before school.</p>
     <p>The <i>EKT - Eltern Initiativ Kindertagesstätte</i> are kitas that are run collectively by parents and carers. They can also be referred to as <i>Kinderladen</i>. They are not as big as kitas, which can be beneficial to the children, and parents have a certain control over the way the kita operates. But they do require some extra time from the parents (cleaning the premises, preparing lunch) and tend to have shorter opening hours. They are not recommended for families where both parents work full-time.</p>
 
-    <h2>Finding a kita spot</h2>
-    <p>Our website <strong>Pregnant in Berlin</strong> provides a tool that allows you to check the kitas in your area as well as to add notes and comments about the kitas you have contacted.</p>
-    <p>Check the kitas located around you by entering your address and clicking on 'Search'.</p>
-
-    <%= form_tag kindergartens_path, method: :get, class:"mb-3" do %>
-      <%= text_field_tag :address,
-        params[:address],
-        class: "form-control",
-        placeholder: "What's your address?"
-      %>
-      <%= submit_tag "Search", class: "btn-pib-dark mt-2" %>
-    <% end %>
 
   </div>
 </div>
