@@ -14,3 +14,44 @@
     margin-bottom: 10px;
   }
 }
+
+.list-pib {
+  list-style: none;
+  font-family: "Catamaran", "Helvetica", "sans-serif";
+  padding: 0;
+  margin: 0;
+  li {
+    padding-left: 1.3em;
+  }
+  li:before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin-left: -1.3em;
+    width: 1.3em;
+  }
+}
+.list-tick {
+  li:before {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+}
+.list-arrow {
+  li:before {
+    content: "\f30b";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+}
+
+.box-pib {
+  border: 1px solid $light-blue;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin: 10px auto;
+  width: fit-content;
+}
