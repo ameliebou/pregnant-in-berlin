@@ -1,11 +1,12 @@
 .static-container {
   min-height: calc(100vh - 120px);
+  h1 {
+    padding-top: 20px;
+    font-family: 'Kaushan Script', cursive
+  }
 }
 
 .pages-container {
-  h1 {
-    margin-top: 20px;
-  }
   h2 {
     margin: 20px 0;
   }

@@ -1,3 +1,8 @@
-<p class="font-dark-blue"><strong><%= kindergarten.name %></strong></p>
+<% if kindergarten.kita_contacts.where(user: current_user).empty? %>
+  <p class="font-dark-blue"><strong><%= kindergarten.name %></strong></p>
+<% else %>
+  <p class="font-pink"><strong><%= kindergarten.name %></strong></p>
+<% end %>
+
 <p class="mb-3"><%= kindergarten.address %></p>
 <p><%= link_to 'More details', kindergarten_path(kindergarten), target: "_blank", class:"btn-pib-dark" %></p>

@@ -1,6 +1,8 @@
+<% content_for :meta_title, "My kita contacts - #{DEFAULT_META["meta_product_name"]}" %>
+
 <div class="container">
   <div class="static-container">
-    <h1 class="pt-3">All my kita contacts</h1>
+    <h1>All my kita contacts</h1>
 
     <% if @kitas.empty? %>
 
@@ -16,9 +18,15 @@
       <% end %>
 
     <% else %>
+      <div
+        id="map"
+        class="kita-contacts-map"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+      ></div>
 
       <% @kitas.each do |k| %>
-        <div class="mt-4">
+        <div class="my-4">
           <h3><%= link_to k.name, kindergarten_path(k), class: "pib-text-link" %></h3>
           <% k.kita_contacts.where(user: current_user).order(created_at: :desc).each do |kc| %>
             <div class="kita-contacts d-flex">

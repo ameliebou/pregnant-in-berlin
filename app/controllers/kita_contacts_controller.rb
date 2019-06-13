@@ -8,6 +8,16 @@ class KitaContactsController < ApplicationController
     @kita_contacts.each { |kc| @kitas << kc.kindergarten }
     @kitas.uniq!
     @kitas.sort!
+    @markers = @kitas.map do |kita|
+      {
+        details: {
+          contacts: kita.kita_contacts.where(user: current_user)
+        },
+        lng: kita.longitude,
+        lat: kita.latitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { kindergarten: kita })
+      }
+    end
   end
 
   def new
