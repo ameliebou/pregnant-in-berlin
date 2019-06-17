@@ -3,7 +3,7 @@
 <div class="window d-block d-sm-flex">
   <div class="search-container d-none d-sm-block">
     <div class="search-title">
-      <h2>Filter your search for kitas</h2>
+      <h2>Kita Finder</h2>
     </div>
 
     <div class="form-container">
@@ -21,12 +21,7 @@
           <%= select_tag :radius, options_for_select((1..5).to_a), class:"form-control" %>
 
           <p>Minimum age (in months):</p>
-          <%= select_tag :minimum_age,
-            "<option>all</option>
-            <option>< 6</option>
-            <option>6 - 12</option>
-            <option>12 - 18</option>
-            <option>> 18</option>". html_safe, class:"form-control" %>
+          <%= select_tag :minimum_age, options_for_select(["all", 6, 12, 18]),class:"form-control" %>
 
           <p>Kita size (in nb of total kids)</p>
           <%= select_tag :places,
@@ -44,7 +39,7 @@
 
   <div class="search-container-small d-block d-sm-none">
     <div class="search-title">
-      <h3>Filter your search</h3>
+      <h3>Kita Finder</h3>
     </div>
 
     <div class="form-container">
@@ -63,12 +58,7 @@
             <%= select_tag :radius, options_for_select((1..5).to_a), class:"form-control" %>
 
             <div>Minimum age (in months):</div>
-            <%= select_tag :minimum_age,
-              "<option>all</option>
-              <option>< 6</option>
-              <option>6 - 12</option>
-              <option>12 - 18</option>
-              <option>> 18</option>". html_safe, class:"form-control" %>
+            <%= select_tag :minimum_age, options_for_select(["all", 6, 12, 18]),class:"form-control" %>
 
             <div>Kita size (in nb of total kids)</div>
             <%= select_tag :places,

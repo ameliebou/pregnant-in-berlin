@@ -11,6 +11,9 @@
 
   .search-title {
     padding: 5px 0;
+    h2 {
+      font-family: 'Kaushan Script', cursive;
+    }
   }
 
   .form-container {
@@ -37,6 +40,8 @@
     padding: 5px;
     h3 {
       margin: 0;
+      font-family: 'Kaushan Script', cursive;
+      color: $dark-blue;
     }
   }
   .form-container {

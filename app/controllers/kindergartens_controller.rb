@@ -2,16 +2,8 @@ class KindergartensController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def get_minimum_age
-    case params[:minimum_age]
-    when '< 6'
-      @kindergartens = @kindergartens.where('minimum_age < ?', 6)
-    when '6 - 12'
-      @kindergartens = @kindergartens.where('minimum_age >= ?', 6).where('minimum_age < ?', 12)
-    when '12 - 18'
-      @kindergartens = @kindergartens.where('minimum_age >= ?', 12).where('minimum_age < ?', 18)
-    when '> 18'
-      @kindergartens = @kindergartens.where('minimum_age >= 18', 6)
-    end
+    return @kindergartens = @kindergartens if params[:minimum_age] == 'all'
+    @kindergartens = @kindergartens.where('minimum_age <= ?', params[:minimum_age])
   end
 
   def get_places
