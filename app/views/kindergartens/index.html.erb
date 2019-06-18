@@ -18,7 +18,7 @@
         </button></p>
         <div class="collapse" id="collapseSearch">
           <p>Search radius (in km):</p>
-          <%= select_tag :radius, options_for_select((1..5).to_a), class:"form-control" %>
+          <%= select_tag :radius, options_for_select([1, 2, 5, 10, 20, 30]), class:"form-control" %>
 
           <p>Minimum age (in months):</p>
           <%= select_tag :minimum_age, options_for_select(["all", 6, 12, 18]),class:"form-control" %>

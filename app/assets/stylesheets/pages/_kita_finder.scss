@@ -1,0 +1,21 @@
+.kita-finder-container > p {
+  width: 500px;
+  font-size: 18px;
+  text-align: center;
+  color: $dark-blue;
+}
+
+.kita-finder-form {
+  p {
+    margin: 10px 0 5px 0;
+  }
+  #radius, #minimum_age, #places {
+    width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kita-finder-container > p {
+    width: 300px;
+  }
+}

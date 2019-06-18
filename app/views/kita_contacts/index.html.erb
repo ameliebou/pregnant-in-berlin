@@ -6,16 +6,9 @@
 
     <% if @kitas.empty? %>
 
-      <p><i>You don't have any kita details for the moment. You can check the kitas near you on our map by entering your address and clicking on 'Search"</i></p>
+      <p class="pt-5 text-center"><i>You don't have any kita details for the moment. Check our Kita Finder to help you locate your ideal kita!</i></p>
 
-      <%= form_tag kindergartens_path, method: :get, class:"mb-3" do %>
-        <%= text_field_tag :address,
-          params[:address],
-          class: "form-control",
-          placeholder: "What's your address?"
-        %>
-        <%= submit_tag "Search", class: "btn-pib-dark mt-2" %>
-      <% end %>
+      <%= link_to "Go to Kita Finder", kita_finder_path, class:"btn-pib-dark d-block mx-auto text-center", style:"width: 160px;" %>
 
     <% else %>
       <div

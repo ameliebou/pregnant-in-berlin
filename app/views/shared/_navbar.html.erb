@@ -5,8 +5,8 @@
       <i class="fas fa-baby"></i>
     <% end %>
     <div>
-      <%= link_to "Sign up", new_user_registration_path, class: "btn-pib" %>
-      <%= link_to "Log in", new_user_session_path, class: "btn-pib" %>
+      <%= link_to "Kita Finder", kita_finder_path, class: "btn-pib" %>
+      <%= link_to "Log in", new_user_session_path, class: "btn-pib-dark" %>
     </div>
   </div>
 
@@ -23,6 +23,7 @@
       </button>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
         <%= link_to "Kita contacts", kita_contacts_path, class: "dropdown-item" %>
+        <%= link_to "Kita finder", kita_finder_path, class: "dropdown-item" %>
         <div class="dropdown-divider"></div>
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div>
