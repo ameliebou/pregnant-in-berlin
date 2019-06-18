@@ -52,7 +52,8 @@ class KindergartensController < ApplicationController
         contacts: @kindergarten.kita_contacts.where(user: current_user)
       },
       lng: @kindergarten.longitude,
-      lat: @kindergarten.latitude
+      lat: @kindergarten.latitude,
+      infoWindow: render_to_string(partial: "infowindow", locals: { kindergarten: @kindergarten })
     }]
   end
 end
