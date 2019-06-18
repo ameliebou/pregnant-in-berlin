@@ -38,7 +38,7 @@ class KindergartensController < ApplicationController
         },
         lng: kindergarten.longitude,
         lat: kindergarten.latitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { kindergarten: kindergarten })
+        infoWindow: render_to_string(partial: "infowindow", locals: { kindergarten: @kindergarten })
       }
     end
   end
@@ -53,7 +53,7 @@ class KindergartensController < ApplicationController
       },
       lng: @kindergarten.longitude,
       lat: @kindergarten.latitude,
-      infoWindow: render_to_string(partial: "infowindow", locals: { kindergarten: @kindergarten })
+      infoWindow: render_to_string(partial: "infowindow", locals: { kindergarten: kindergarten })
     }]
   end
 end
