@@ -26,6 +26,7 @@
 }
 .kita-contacts {
   border-bottom: solid 1px $light-gray;
+  width: 90%;
 }
 .kita-contacts-item {
   padding: 5px;
@@ -39,6 +40,9 @@
   .kita-details {
     min-width: 100%;
   }
+  .kita-contacts {
+    width: 80%;
+  }
   .kita-contacts-item {
     width: 100px;
     &:first-child {
@@ -47,5 +51,8 @@
     &:last-child {
       width: 300px;
     }
+  }
+  .kita-contacts-date {
+    border-right: dotted 1px $light-gray;
   }
 }

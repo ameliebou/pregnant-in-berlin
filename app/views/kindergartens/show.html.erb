@@ -133,23 +133,33 @@
       <h4>Contact history with <%= @kindergarten.name %></h4>
 
       <% @kita_contacts.each do |kita_contact| %>
-        <div class="kita-contacts d-flex">
-          <div class="kita-contacts-item col-sm-1 text-center">
-            <% if kita_contact.contact_type == "call" %>
-              <i class="fas fa-phone"></i>
-            <% elsif kita_contact.contact_type == "email" %>
-              <i class="fas fa-at"></i>
-            <% elsif kita_contact.contact_type == "visit" %>
-              <i class="fas fa-walking"></i>
-            <% elsif kita_contact.contact_type == "other" %>
-              <i class="fas fa-th-list"></i>
+        <div class="d-flex justify-content-between">
+          <div class="kita-contacts d-flex">
+            <div class="kita-contacts-item col-sm-1 text-center">
+              <% if kita_contact.contact_type == "call" %>
+                <i class="fas fa-phone"></i>
+              <% elsif kita_contact.contact_type == "email" %>
+                <i class="fas fa-at"></i>
+              <% elsif kita_contact.contact_type == "visit" %>
+                <i class="fas fa-walking"></i>
+              <% elsif kita_contact.contact_type == "other" %>
+                <i class="fas fa-th-list"></i>
+              <% end %>
+            </div>
+            <div class="kita-contacts-item kita-contacts-date col-sm-2">
+              <%= kita_contact.created_at.strftime("%a %e %B - %H:%M") %>
+            </div>
+            <div class="kita-contacts-item col-sm-9">
+              <%= kita_contact.note %>
+            </div>
+          </div>
+          <div class="d-block my-auto" style:"width: 50px;">
+            <%= link_to kindergarten_kita_contact_path(@kindergarten, kita_contact),
+              method: :delete,
+              data: { confirm: "Are you sure?" }, class:'btn-pib-pink' do %>
+              <i class="fas fa-trash-alt"></i>
             <% end %>
-          </div>
-          <div class="kita-contacts-item col-sm-2">
-            <%= kita_contact.created_at.strftime("%a %e %B - %H:%M") %>
-          </div>
-          <div class="kita-contacts-item col-sm-9">
-            <%= kita_contact.note %>
+
           </div>
         </div>
       <% end %>

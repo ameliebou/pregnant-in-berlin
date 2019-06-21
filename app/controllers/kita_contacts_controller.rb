@@ -1,5 +1,6 @@
 class KitaContactsController < ApplicationController
   before_action :set_kita
+  before_action :set_kita_contact, only: [:destroy, :edit, :update]
   skip_before_action :set_kita, only: :index
 
   def index
@@ -32,10 +33,27 @@ class KitaContactsController < ApplicationController
     redirect_to kindergarten_path(@kita)
   end
 
+  def edit
+  end
+
+  def update
+    @kita.update(kita_contact_params)
+    redirect_to kindergarten_path(@kita)
+  end
+
+  def destroy
+    @kita_contact.destroy
+    redirect_to kindergarten_path(@kita)
+  end
+
   private
 
   def set_kita
     @kita = Kindergarten.find(params[:kindergarten_id])
+  end
+
+  def set_kita_contact
+    @kita_contact = KitaContact.find(params[:id])
   end
 
   def kita_contact_params
