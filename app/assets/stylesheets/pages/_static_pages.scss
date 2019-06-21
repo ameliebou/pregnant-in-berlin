@@ -4,12 +4,14 @@
     padding: 20px 0;
     font-family: 'Kaushan Script', cursive;
     font-size: 45px;
-    text-align: center;
-    border-bottom: solid 1px $dark-blue;
   }
 }
 
 .pages-container {
+  h1 {
+    text-align: center;
+    border-bottom: solid 1px $dark-blue;
+  }
   h2 {
     margin: 20px 0;
   }
