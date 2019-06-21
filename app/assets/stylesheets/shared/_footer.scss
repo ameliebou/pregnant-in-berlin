@@ -5,12 +5,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  p, i {
+  color: $light-blue;
+  p {
     margin: 0;
     color: white;
     opacity: 0.8;
-  }
-  i {
-    font-size: 30px;
   }
 }

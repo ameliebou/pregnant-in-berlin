@@ -1,8 +1,11 @@
 .static-container {
   min-height: calc(100vh - 120px);
   h1 {
-    padding-top: 20px;
-    font-family: 'Kaushan Script', cursive
+    padding: 20px 0;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 45px;
+    text-align: center;
+    border-bottom: solid 1px $dark-blue;
   }
 }
 

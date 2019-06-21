@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   get '/', to: 'pages#home'
-  get '/midwife-system', to: 'pages#midwives'
+  get '/about', to: 'pages#about'
   get '/kita-finder', to: 'pages#kita_finder'
   get '/kitas', to: 'pages#kitas'
-  get '/about', to: 'pages#about'
+  get '/lexicon', to: 'pages#lexicon'
+  get '/midwife-system', to: 'pages#midwives'
   get '/paternity-acknowledgment', to: 'pages#paternity_acknowledgment'
   root to: 'pages#home'
 
