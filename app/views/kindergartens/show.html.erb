@@ -15,9 +15,9 @@
           <% end %>
           <% unless @kindergarten.url == "" %>
             <% if @kindergarten.url.start_with?("www") %>
-              <p><i class="fas fa-angle-double-right"></i> <%= link_to 'Go to website', "http://".concat(@kindergarten.url), class:"pib-text-link" %></p>
+              <p><i class="fas fa-angle-double-right"></i> <%= link_to 'Go to website', "http://".concat(@kindergarten.url), class:"pib-text-link", target:"_blank" %></p>
             <% else %>
-              <p><i class="fas fa-angle-double-right"></i> <%= link_to 'Go to website', @kindergarten.url, class:"pib-text-link" %></p>
+              <p><i class="fas fa-angle-double-right"></i> <%= link_to 'Go to website', @kindergarten.url, class:"pib-text-link", target:"_blank" %></p>
             <% end %>
           <% end %>
         </div>
