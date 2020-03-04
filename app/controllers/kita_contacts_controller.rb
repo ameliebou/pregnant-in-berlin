@@ -33,9 +33,6 @@ class KitaContactsController < ApplicationController
     redirect_to kindergarten_path(@kita)
   end
 
-  def edit
-  end
-
   def update
     @kita.update(kita_contact_params)
     redirect_to kindergarten_path(@kita)

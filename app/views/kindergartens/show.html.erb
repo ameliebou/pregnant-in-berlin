@@ -132,8 +132,8 @@
     <div class="mt-5">
       <h4>Contact history with <%= @kindergarten.name %></h4>
 
-      <% @kita_contacts.each do |kita_contact| %>
-        <div class="d-flex justify-content-between">
+      <% @kita_contacts.each_with_index do |kita_contact, i| %>
+        <div class="d-flex justify-content-between mt-1">
           <div class="kita-contacts d-flex">
             <div class="kita-contacts-item col-sm-1 text-center">
               <% if kita_contact.contact_type == "call" %>
@@ -146,14 +146,18 @@
                 <i class="fas fa-th-list"></i>
               <% end %>
             </div>
-            <div class="kita-contacts-item kita-contacts-date col-sm-2">
+            <div class="kita-contacts-item kita-contacts-date col-sm-3">
               <%= kita_contact.created_at.strftime("%a %e %B - %H:%M") %>
             </div>
-            <div class="kita-contacts-item col-sm-9">
+            <div class="kita-contacts-item col-sm-8">
               <%= kita_contact.note %>
             </div>
           </div>
-          <div class="d-block my-auto" style:"width: 50px;">
+          <div class="d-flex my-auto" style:"width: 50px;">
+            <button class='btn-pib-dark btn-short' type="button" data-toggle="collapse" data-target="#collapseEdit<%= i %>" aria-expanded="false" aria-controls="collapseEdit<%= i %>">
+              <i class="fas fa-edit"></i>
+            </button>
+
             <%= link_to kindergarten_kita_contact_path(@kindergarten, kita_contact),
               method: :delete,
               data: { confirm: "Are you sure?" }, class:'btn-pib-pink btn-short' do %>
@@ -161,6 +165,9 @@
             <% end %>
 
           </div>
+        </div>
+        <div class="collapse" id="collapseEdit<%= i %>">
+          <%= render "kita_contacts/new" %>
         </div>
       <% end %>
 
