@@ -50,18 +50,13 @@
           </button>
           <div class="dropdown-menu pl-2" aria-labelledby="dropdownSearchButton">
             <div>Search radius (in km):</div>
-            <%= select_tag :radius, options_for_select((1..5).to_a), class:"form-control" %>
+            <%= select_tag :radius, options_for_select([1, 2, 5, 10, 20, 30], params[:radius]), class:"form-control" %>
 
             <div>Minimum age (in months):</div>
-            <%= select_tag :minimum_age, options_for_select(["all", 6, 12, 18]),class:"form-control" %>
+            <%= select_tag :minimum_age, options_for_select(["all", 6, 12, 18], params[:minimum_age]), class:"form-control" %>
 
             <div>Kita size (in nb of total kids)</div>
-            <%= select_tag :places,
-              "<option>all</option>
-              <option>< 20</option>
-              <option>20 - 50</option>
-              <option>50 - 100</option>
-              <option>> 100</option>". html_safe, class:"form-control" %>
+            <%= select_tag :places, options_for_select(["all", "< 20", "20 - 50", "50 - 100", "> 100"], params[:places]), class:"form-control" %>
           </div>
         </div>
 
