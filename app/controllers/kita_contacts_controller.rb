@@ -1,7 +1,6 @@
 class KitaContactsController < ApplicationController
-  before_action :set_kita, only: [:index, :create, :destroy]
+  before_action :set_kita, only: :create
   before_action :set_kita_contact, only: [:destroy, :update]
-  skip_before_action :set_kita, only: :index
 
   def index
     @kita_contacts = KitaContact.all.where(user: current_user)
@@ -30,13 +29,13 @@ class KitaContactsController < ApplicationController
   end
 
   def update
-    @kita_contact.update(kita_contact_params)
+    @kita_contact.update(update_kita_contact_params)
     redirect_to kindergarten_path(@kita_contact.kindergarten)
   end
 
   def destroy
     @kita_contact.destroy
-    redirect_to kindergarten_path(@kita)
+    redirect_to kindergarten_path(@kita_contact.kindergarten)
   end
 
   private
@@ -51,5 +50,9 @@ class KitaContactsController < ApplicationController
 
   def kita_contact_params
     params.require(:kita_contact).permit(:contact_type, :note)
+  end
+
+  def update_kita_contact_params
+    params.require(:kita_contact).permit(:contact_type, :note, :created_at)
   end
 end
