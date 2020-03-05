@@ -163,11 +163,24 @@
               data: { confirm: "Are you sure?" }, class:'btn-pib-pink btn-short' do %>
               <i class="fas fa-trash-alt"></i>
             <% end %>
-
           </div>
         </div>
         <div class="collapse" id="collapseEdit<%= i %>">
-          <%= render "kita_contacts/new" %>
+          <%= simple_form_for kita_contact, :url => kita_contact_path(kita_contact), :method => :patch do |f| %>
+              <div class="form-inline form-new-contact">
+                <div class="form-group">
+                  <%= f.input :contact_type,
+                  collection: %w(call email visit other),
+                  input_html: { class: "form-control" },
+                  label: false %>
+                  <%= f.input :note, input_html: { style: 'height:40px;', class: "form-control",
+                    placeholder: 'Add a note',
+                    rows: 1 },
+                  label: false %>
+                </div>
+                <%= f.submit "Edit contact", class: "btn-pib-dark" %>
+              </div>
+            <% end %>
         </div>
       <% end %>
 

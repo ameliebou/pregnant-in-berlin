@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :kindergartens, only: [:index, :show] do
-    resources :kita_contacts, only: [ :new, :create, :destroy, :update ]
+    resources :kita_contacts, only: [ :new, :create, :destroy ]
   end
 
-  resources :kita_contacts, only: :index
+  resources :kita_contacts, only: [:index, :update]
 end
