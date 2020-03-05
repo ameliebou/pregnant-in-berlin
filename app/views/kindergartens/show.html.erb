@@ -154,15 +154,19 @@
             </div>
           </div>
           <div class="d-flex my-auto" style:"width: 50px;">
-            <button class='btn-pib-dark btn-short' type="button" data-toggle="collapse" data-target="#collapseEdit<%= i %>" aria-expanded="false" aria-controls="collapseEdit<%= i %>">
-              <i class="fas fa-edit"></i>
-            </button>
+            <div>
+              <a class='btn-icon btn-dark' role="button" data-toggle="collapse" href="#collapseEdit<%= i %>" aria-expanded="false" aria-controls="collapseEdit<%= i %>">
+                <i class="fas fa-edit"></i>
+              </a>
+            </div>
 
-            <%= link_to kindergarten_kita_contact_path(@kindergarten, kita_contact),
+            <div>
+              <%= link_to kita_contact_path(kita_contact),
               method: :delete,
-              data: { confirm: "Are you sure?" }, class:'btn-pib-pink btn-short' do %>
-              <i class="fas fa-trash-alt"></i>
-            <% end %>
+              data: { confirm: "Are you sure?" }, class:'btn-icon btn-pink' do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+            </div>
           </div>
         </div>
         <div class="collapse" id="collapseEdit<%= i %>">
@@ -173,12 +177,13 @@
                   collection: %w(call email visit other),
                   input_html: { class: "form-control" },
                   label: false %>
+                  <%= f.input :created_at, as: :datetime, html5: true, input_html: { class: "form-control" }, label: false %>
                   <%= f.input :note, input_html: { style: 'height:40px;', class: "form-control",
                     placeholder: 'Add a note',
                     rows: 1 },
                   label: false %>
                 </div>
-                <%= f.submit "Edit contact", class: "btn-pib-dark" %>
+                <%= f.submit "Edit", class: "m-auto btn-pib-dark btn-short" %>
               </div>
             <% end %>
         </div>

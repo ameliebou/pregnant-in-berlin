@@ -43,3 +43,35 @@
 .btn-short {
   padding: 5px 15px;
 }
+
+.btn-dark {
+  color: white;
+  background-color: $dark-blue;
+  border-radius: 10px;
+  transition: all ease 0.4s;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.5;
+  }
+}
+
+.btn-pink {
+  color: white;
+  background-color: $pink;
+  border-radius: 10px;
+  transition: all ease 0.4s;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    opacity: 0.5;
+  }
+}
+
+.btn-icon {
+  padding: 5px 10px;
+  margin: auto;
+  width: 35px;
+  display: block;
+  margin: 1px;
+}
