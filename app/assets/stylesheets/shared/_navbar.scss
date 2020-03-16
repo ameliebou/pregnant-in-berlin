@@ -14,3 +14,16 @@
 .navbar-brand img {
   width: 40px;
 }
+
+.navbar-links {
+  display: flex;
+  > a {
+    color: #f3f9ff;
+    padding: 6px;
+    transition: ease all 0.3s;
+    &:hover {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+}
