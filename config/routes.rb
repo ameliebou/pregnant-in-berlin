@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/', to: 'pages#home'
   get '/about', to: 'pages#about'
+  get '/dashboard', to: 'pages#dashboard'
   get '/kita-finder', to: 'pages#kita_finder'
   get '/kitas', to: 'pages#kitas'
   get '/lexicon', to: 'pages#lexicon'
