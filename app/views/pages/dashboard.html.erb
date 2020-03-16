@@ -1,5 +1,14 @@
 <% content_for :meta_title, "Dashboard - #{DEFAULT_META["meta_product_name"]}" %>
 <div class="container">
   <div class="static-container">
+    <% unless current_user %>
+
+      <div class="col-md-8 m-auto text-center">
+        <h3 class="my-5">Please log in to be able to access your dashboard!</h3>
+        <%= link_to "Log in", new_user_session_path, class: "btn-pib" %>
+      </div>
+
+    <% else %>
+    <% end %>
   </div>
 </div>
