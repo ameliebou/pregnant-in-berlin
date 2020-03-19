@@ -20,22 +20,28 @@
 
       <div class="banner-links">
         <div class="banner-links-container">
-          <p>Our timeline will give you a quick overview of what you should be looking into at which point of your pregnancy. So, tell us:</p>
-          <div class="dropdown dropright">
-            <button class="btn btn-pib-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              In which month of your pregnancy are you?
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <%= link_to '1st month', "#month-1", class:"dropdown-item" %>
-              <%= link_to '2nd month', "#month-2", class:"dropdown-item" %>
-              <%= link_to '3rd month', "#month-3", class:"dropdown-item" %>
-              <%= link_to '4th month', "#month-4", class:"dropdown-item" %>
-              <%= link_to '5th month', "#month-5", class:"dropdown-item" %>
-              <%= link_to '6th month', "#month-6", class:"dropdown-item" %>
-              <%= link_to '7th month', "#month-7", class:"dropdown-item" %>
-              <%= link_to '8th month', "#month-8", class:"dropdown-item" %>
-              <%= link_to '9th month', "#month-9", class:"dropdown-item" %>
+          <div>
+            <p>Our timeline will give you a quick overview of what you should be looking into at which point of your pregnancy. So, tell us:</p>
+            <div class="dropdown dropright">
+              <button class="btn btn-pib-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                In which month of your pregnancy are you?
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to '1st month', "#month-1", class:"dropdown-item" %>
+                <%= link_to '2nd month', "#month-2", class:"dropdown-item" %>
+                <%= link_to '3rd month', "#month-3", class:"dropdown-item" %>
+                <%= link_to '4th month', "#month-4", class:"dropdown-item" %>
+                <%= link_to '5th month', "#month-5", class:"dropdown-item" %>
+                <%= link_to '6th month', "#month-6", class:"dropdown-item" %>
+                <%= link_to '7th month', "#month-7", class:"dropdown-item" %>
+                <%= link_to '8th month', "#month-8", class:"dropdown-item" %>
+                <%= link_to '9th month', "#month-9", class:"dropdown-item" %>
+              </div>
             </div>
+          </div>
+          <div class="mt-4">
+            <p>Find all kindergartens around you and organise your contacts with them:</p>
+            <%= link_to "Kita Finder", kita_finder_path, class: "btn-pib-pink" %>
           </div>
         </div>
       </div>
@@ -80,6 +86,10 @@
                 <%= link_to '9th month', "#month9", class:"dropdown-item" %>
               </div>
             </div>
+          </div>
+          <div>
+            <p class="my-4">Find all kindergartens around you and organise your contacts with them:</p>
+            <%= link_to "Kita Finder", kita_finder_path, class: "btn-pib-pink" %>
           </div>
         </div>
       </div>
