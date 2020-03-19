@@ -2,6 +2,7 @@
   height: 60px;
   justify-content: space-between;
   background: $green;
+  color: white;
   i {
     opacity: 0.7;
   }
@@ -17,6 +18,7 @@
 
 .navbar-links {
   display: flex;
+  align-items: center;
   > a {
     color: #f3f9ff;
     padding: 6px;
