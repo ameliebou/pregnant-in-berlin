@@ -1,10 +1,10 @@
 .navbar-lewagon {
   height: 60px;
   justify-content: space-between;
-  background: $green;
+  // border-bottom: 1px solid $pink;
   color: white;
   i {
-    opacity: 0.7;
+    color: $dark-blue;
   }
 }
 
@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   > a {
-    color: #f3f9ff;
+    color: $dark-blue;
     padding: 6px;
     transition: ease all 0.3s;
     &:hover {
