@@ -1,0 +1,2 @@
+class KitaRemindersController < ApplicationController
+end
