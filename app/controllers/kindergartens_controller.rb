@@ -47,6 +47,7 @@ class KindergartensController < ApplicationController
     @kindergarten = Kindergarten.find(params[:id])
     @kita_contacts = @kindergarten.kita_contacts.where(user: current_user).order(created_at: :desc)
     @kita_contact = KitaContact.new
+    @kita_reminder = KitaReminder.new
     @markers = [{
       details: {
         contacts: @kindergarten.kita_contacts.where(user: current_user)

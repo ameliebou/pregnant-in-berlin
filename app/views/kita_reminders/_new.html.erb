@@ -1,0 +1,21 @@
+<%= simple_form_for [@kindergarten, @kita_reminder] do |f| %>
+  <div class="form-new-reminder">
+
+    <div class="form-group">
+      <%= f.input :title,
+        input_html: { class: "form-control", placeholder: 'Add a title' },
+        label: false %>
+    </div>
+    <div class="form-group">
+      <%= f.input :date, label: false %>
+    </div>
+
+    <div class="form-group">
+      <%= f.input :content, input_html: { class: "form-control",
+          placeholder: 'Add details to your reminder'},
+        label: false %>
+    </div>
+
+    <%= f.submit "Add a reminder", class: "btn-pib-dark", id: "add-new-contact" %>
+  </div>
+<% end %>
