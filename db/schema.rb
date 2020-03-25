@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_24_125926) do
+ActiveRecord::Schema.define(version: 2020_03_25_152932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,18 @@ ActiveRecord::Schema.define(version: 2019_05_24_125926) do
     t.index ["user_id"], name: "index_kita_contacts_on_user_id"
   end
 
+  create_table "kita_reminders", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "date"
+    t.bigint "user_id"
+    t.bigint "kindergarten_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["kindergarten_id"], name: "index_kita_reminders_on_kindergarten_id"
+    t.index ["user_id"], name: "index_kita_reminders_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -63,4 +75,6 @@ ActiveRecord::Schema.define(version: 2019_05_24_125926) do
 
   add_foreign_key "kita_contacts", "kindergartens"
   add_foreign_key "kita_contacts", "users"
+  add_foreign_key "kita_reminders", "kindergartens"
+  add_foreign_key "kita_reminders", "users"
 end
