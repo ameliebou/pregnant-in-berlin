@@ -1,3 +1,4 @@
+import flatpickr from 'flatpickr';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'bootstrap';
 
@@ -8,3 +9,7 @@ document.addEventListener("turbolinks:load", function() {
   initMapbox();
   smoothScrolling();
 })
+
+flatpickr("#datepicker", {
+
+});
