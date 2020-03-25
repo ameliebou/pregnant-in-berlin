@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   resources :kindergartens, only: [:index, :show] do
     resources :kita_contacts, only: [ :new, :create ]
+    resources :kita_reminders, only: [:new, :create]
   end
 
   resources :kita_contacts, only: [:index, :update, :destroy]
+  resources :kita_reminders, only: [:destroy]
 end
