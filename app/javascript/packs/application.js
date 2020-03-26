@@ -11,4 +11,9 @@ document.addEventListener("turbolinks:load", function() {
   smoothScrolling();
 });
 
-flatpickr(".datepicker", {});
+flatpickr(".datepicker", {
+  altInput: true,
+  enableTime: true,
+  dateFormat: "Y-m-d H:i",
+  minDate: "today"
+});
