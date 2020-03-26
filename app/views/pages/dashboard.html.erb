@@ -12,6 +12,31 @@
 
       <h1>All my kita contacts</h1>
 
+      <!-- displaying reminders if any -->
+
+      <% if @kita_reminders %>
+        <div class="mb-5">
+
+          <button class="btn btn-pib-pink" type="button" data-toggle="collapse" data-target="#collapseReminders" aria-expanded="false" aria-controls="collapseReminders">
+            Reminders
+          </button>
+
+          <div class="collapse" id="collapseReminders">
+            <% @kita_reminders.each do |kr| %>
+              <div>
+                <p><%= kr.title %> - <%= kr.date %></p>
+                <p><%= kr.kindergarten.name %></p>
+                <p><%= kr.content %></p>
+              </div>
+            <% end %>
+          </div>
+
+
+        </div>
+      <% end %>
+
+      <!-- displaying kita contacts if any -->
+
       <% if @kitas.empty? %>
 
         <p class="pt-5 text-center"><i>You don't have any kita details for the moment. Check our Kita Finder to help you locate your ideal kita!</i></p>
