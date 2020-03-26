@@ -17,15 +17,15 @@
       <% if @kita_reminders %>
         <div class="mb-5">
 
-          <button class="btn btn-pib-pink" type="button" data-toggle="collapse" data-target="#collapseReminders" aria-expanded="false" aria-controls="collapseReminders">
+          <button class="btn btn-pib-pink mb-2" type="button" data-toggle="collapse" data-target="#collapseReminders" aria-expanded="false" aria-controls="collapseReminders">
             Reminders
           </button>
 
           <div class="collapse" id="collapseReminders">
             <% @kita_reminders.each do |kr| %>
-              <div>
-                <p><%= kr.title %> - <%= kr.date %></p>
-                <p><%= kr.kindergarten.name %></p>
+              <div class="kita-reminder-entry">
+                <h4><%= kr.date.strftime("%a %e %B - %H:%M") %></h4>
+                <p><%= kr.title %> | <i><%= kr.kindergarten.name %></i></p>
                 <p><%= kr.content %></p>
               </div>
             <% end %>
