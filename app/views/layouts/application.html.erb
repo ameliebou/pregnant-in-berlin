@@ -34,5 +34,7 @@
     <%= yield %>
     <%= render 'shared/footer' unless current_page?(kindergartens_path) %>
     <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script> -->
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
   </body>
 </html>
