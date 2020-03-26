@@ -15,5 +15,13 @@ flatpickr(".datepicker", {
   altInput: true,
   enableTime: true,
   dateFormat: "Y-m-d H:i",
-  minDate: "today"
+  minDate: "today",
+  time_24hr: true
+});
+
+flatpickr(".datepicker-update", {
+  altInput: true,
+  enableTime: true,
+  dateFormat: "Y-m-d H:i",
+  time_24hr: true
 });

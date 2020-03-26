@@ -177,7 +177,7 @@
                   collection: %w(call email visit other),
                   input_html: { class: "form-control" },
                   label: false %>
-                  <%= f.input :created_at, as: :datetime, html5: true, input_html: { class: "form-control" }, label: false %>
+                  <%= f.input :created_at, as: :string, input_html: { class: "form-control datepicker-update" }, label: false %>
                   <%= f.input :note, input_html: { style: 'height:40px;', class: "form-control",
                     placeholder: 'Add a note',
                     rows: 1 },
