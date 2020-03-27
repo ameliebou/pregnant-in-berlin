@@ -24,7 +24,7 @@
           <div class="collapse" id="collapseReminders">
             <% @kita_reminders.each do |kr| %>
               <div class="kita-reminder-entry">
-                <h4><%= kr.count_down %> - <%= kr.date.strftime("%a %e %B - %H:%M") %></h4>
+                <h4><span class="font-pink"><%= kr.count_down %></span> - <%= kr.date.strftime("%a %e %B - %H:%M") %></h4>
                 <div class="entry-title"><%= kr.title %> | <i><%= kr.kindergarten.name %></i></div>
                 <div class="entry-content"><%= kr.content %></div>
               </div>
