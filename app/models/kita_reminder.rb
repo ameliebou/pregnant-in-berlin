@@ -2,6 +2,10 @@ class KitaReminder < ApplicationRecord
   belongs_to :user
   belongs_to :kindergarten
 
+  def self.count_reminders
+    KitaReminder.where("date > ?", Time.now).count
+  end
+
   def self.coming(current_user)
     KitaReminder.where(user: current_user).where("date > ?", Time.now)
   end

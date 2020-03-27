@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!#, only: [:home, :kitas, :about, :midwives]
 
   def dashboard
-    @kita_contacts = KitaContact.all.where(user: current_user)
+    @kita_contacts = KitaContact.where(user: current_user)
     @kita_reminders = KitaReminder.coming(current_user)
     @kitas = []
     @kita_contacts.each { |kc| @kitas << kc.kindergarten }

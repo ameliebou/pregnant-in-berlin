@@ -55,8 +55,10 @@
           <div class="my-4">
             <div class="d-flex">
               <h3><%= link_to k.name, kindergarten_path(k), class: "pib-text-link" %></h3>
-              <% if k.count_reminders(current_user) > 0  %>
-                <span class="reminder-badge"><%= k.count_reminders(current_user) %></span>
+              <% if k.num_reminders > 0  %>
+                <div class="reminder-badge" data-toggle="tooltip" data-placement="bottom" title="Number of reminders">
+                  <%= k.num_reminders %>
+                </div>
               <% end %>
             </div>
             <% k.kita_contacts.where(user: current_user).order(created_at: :desc).each do |kc| %>
