@@ -7,7 +7,7 @@ class KitaReminder < ApplicationRecord
   end
 
   def self.coming(current_user)
-    KitaReminder.where(user: current_user).where("date > ?", Time.now)
+    KitaReminder.where(user: current_user).where("date > ?", Time.now).order(date: :asc)
   end
 
   def check_day(days)
