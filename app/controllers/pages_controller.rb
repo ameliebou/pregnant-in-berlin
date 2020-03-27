@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @kita_contacts = KitaContact.all.where(user: current_user)
-    @kita_reminders = KitaReminder.all.where(user: current_user)
+    @kita_reminders = KitaReminder.coming(current_user)
     @kitas = []
     @kita_contacts.each { |kc| @kitas << kc.kindergarten }
     @kitas.uniq!
