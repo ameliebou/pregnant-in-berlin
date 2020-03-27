@@ -1,0 +1,12 @@
+.kita-reminder-entry {
+  border-bottom: 1px solid $light-gray;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  &:last-child {
+    border: none;
+  }
+  .entry-content {
+    color: $dark-blue;
+    font-size: 14px;
+  }
+}

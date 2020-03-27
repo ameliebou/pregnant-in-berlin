@@ -15,7 +15,7 @@
       <!-- displaying reminders if any -->
 
       <% if @kita_reminders %>
-        <div class="mb-5">
+        <div class="mb-3">
 
           <button class="btn btn-pib-pink mb-2" type="button" data-toggle="collapse" data-target="#collapseReminders" aria-expanded="false" aria-controls="collapseReminders">
             Reminders
@@ -24,9 +24,9 @@
           <div class="collapse" id="collapseReminders">
             <% @kita_reminders.each do |kr| %>
               <div class="kita-reminder-entry">
-                <h4><%= kr.date.strftime("%a %e %B - %H:%M") %></h4>
-                <p><%= kr.title %> | <i><%= kr.kindergarten.name %></i></p>
-                <p><%= kr.content %></p>
+                <h4><%= kr.count_down %> - <%= kr.date.strftime("%a %e %B - %H:%M") %></h4>
+                <div class="entry-title"><%= kr.title %> | <i><%= kr.kindergarten.name %></i></div>
+                <div class="entry-content"><%= kr.content %></div>
               </div>
             <% end %>
           </div>
