@@ -53,7 +53,12 @@
 
         <% @kitas.each do |k| %>
           <div class="my-4">
-            <h3><%= link_to k.name, kindergarten_path(k), class: "pib-text-link" %></h3>
+            <div class="d-flex">
+              <h3><%= link_to k.name, kindergarten_path(k), class: "pib-text-link" %></h3>
+              <% if k.count_reminders(current_user) > 0  %>
+                <span class="reminder-badge"><%= k.count_reminders(current_user) %></span>
+              <% end %>
+            </div>
             <% k.kita_contacts.where(user: current_user).order(created_at: :desc).each do |kc| %>
               <div class="kita-contacts d-flex">
                 <div class="kita-contacts-item col-sm-1 text-center">
