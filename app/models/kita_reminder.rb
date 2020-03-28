@@ -2,6 +2,14 @@ class KitaReminder < ApplicationRecord
   belongs_to :user
   belongs_to :kindergarten
 
+  def self.any_today?(current_user)
+    kr = KitaReminder.coming(current_user)
+    t = DateTime.now + 1.day
+    t = t - (t.hour).hour - (t.minute).minute - (t.second).seconds
+    kr_today = kr.where("date < ?", t)
+    return true if kr_today.count > 0
+  end
+
   def self.count_reminders
     KitaReminder.where("date > ?", Time.now).count
   end
