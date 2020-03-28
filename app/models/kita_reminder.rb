@@ -10,12 +10,18 @@ class KitaReminder < ApplicationRecord
     return true if kr_today.count > 0
   end
 
-  def self.count_reminders
-    KitaReminder.where("date > ?", Time.now).count
+  def self.count_reminders(current_user)
+    KitaReminder.where(user: current_user).where("date > ?", Time.now).count
   end
 
   def self.coming(current_user)
     KitaReminder.where(user: current_user).where("date > ?", Time.now).order(date: :asc)
+  end
+
+  def today?
+    t = DateTime.now + 1.day
+    t = t - (t.hour).hour - (t.minute).minute - (t.second).seconds
+    return true if date < t
   end
 
   def check_day(days)

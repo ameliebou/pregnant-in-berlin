@@ -4,7 +4,7 @@ class Kindergarten < ApplicationRecord
 
   geocoded_by :address
 
-  def num_reminders
-    kita_reminders.count_reminders
+  def num_reminders(current_user)
+    kita_reminders.count_reminders(current_user)
   end
 end

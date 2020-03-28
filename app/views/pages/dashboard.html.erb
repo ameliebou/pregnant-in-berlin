@@ -55,9 +55,9 @@
           <div class="my-4">
             <div class="d-flex">
               <h3><%= link_to k.name, kindergarten_path(k), class: "pib-text-link" %></h3>
-              <% if k.num_reminders > 0  %>
+              <% if k.num_reminders(current_user) > 0  %>
                 <div class="reminder-badge" data-toggle="tooltip" data-placement="bottom" title="Number of reminders">
-                  <%= k.num_reminders %>
+                  <%= k.num_reminders(current_user) %>
                 </div>
               <% end %>
             </div>
