@@ -10,69 +10,92 @@
 
     <% else %>
 
-      <ul class="nav nav-tabs pt-3" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="kita-contact-tab" data-toggle="tab" href="#kita-contact" role="tab" aria-controls="kita-contact" aria-selected="true">Contacts to kita</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="reminders-tab" data-toggle="tab" href="#reminders" role="tab" aria-controls="reminders" aria-selected="false">Reminders</a>
-        </li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="kita-contact" role="tabpanel" aria-labelledby="kita-contact-tab">
-          <h1>All my kita contacts</h1>
+      <h1>All my kita contacts</h1>
 
-          <% if @kitas.empty? %>
+      <!-- displaying reminders if any -->
 
-            <p class="pt-5 text-center"><i>You don't have any kita details for the moment. Check our Kita Finder to help you locate your ideal kita!</i></p>
+      <% if @kita_reminders.any? %>
+        <div class="mb-3">
 
-            <%= link_to "Go to Kita Finder", kita_finder_path, class:"btn-pib-dark d-block mx-auto text-center", style:"width: 160px;" %>
+          <button class="btn btn-pib-pink mb-2" type="button" data-toggle="collapse" data-target="#collapseReminders" aria-expanded="false" aria-controls="collapseReminders">
+            Reminders
+          </button>
 
-          <% else %>
-            <div
-              id="map"
-              class="kita-contacts-map"
-              data-markers="<%= @markers.to_json %>"
-              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-            ></div>
-
-            <% @kitas.each do |k| %>
-              <div class="my-4">
-                <h3><%= link_to k.name, kindergarten_path(k), class: "pib-text-link" %></h3>
-                <% k.kita_contacts.where(user: current_user).order(created_at: :desc).each do |kc| %>
-                  <div class="kita-contacts d-flex">
-                    <div class="kita-contacts-item col-sm-1 text-center">
-                      <% if kc.contact_type == "call" %>
-                        <i class="fas fa-phone"></i>
-                      <% elsif kc.contact_type == "email" %>
-                        <i class="fas fa-at"></i>
-                      <% elsif kc.contact_type == "visit" %>
-                        <i class="fas fa-walking"></i>
-                      <% elsif kc.contact_type == "other" %>
-                        <i class="fas fa-th-list"></i>
-                      <% end %>
-                    </div>
-                    <div class="kita-contacts-item col-sm-2">
-                      <%= kc.created_at.strftime("%a %e %B - %H:%M") %>
-                    </div>
-                    <div class="kita-contacts-item col-sm-9">
-                      <%= kc.note %>
-                    </div>
-                  </div>
-                <% end %>
+          <div class="collapse" id="collapseReminders">
+            <% @kita_reminders.each do |kr| %>
+              <div class="kita-reminder-entry">
+                <h4>
+                  <% if kr.today? %>
+                    <span class="font-pink"><%= kr.count_down %></span>
+                  <% else %>
+                    <span class="font-dark-blue"><%= kr.count_down %></span>
+                  <% end %>
+                  - <%= kr.date.strftime("%a %e %B - %H:%M") %></h4>
+                <div class="entry-title"><%= kr.title %> | <i><%= kr.kindergarten.name %></i></div>
+                <div class="entry-content"><%= kr.content %></div>
               </div>
             <% end %>
-
-          <% end %>
+          </div>
 
 
         </div>
+      <% end %>
 
-        <div class="tab-pane fade" id="reminders" role="tabpanel" aria-labelledby="reminders-tab">
-          <i>Please be patient, we are still working on this feature :)</i>
-        </div>
-      </div>
+      <!-- displaying kita contacts if any -->
 
+      <% if @kitas.empty? %>
+
+        <p class="pt-5 text-center"><i>You don't have any kita details for the moment. Check our Kita Finder to help you locate your ideal kita!</i></p>
+
+        <%= link_to "Go to Kita Finder", kita_finder_path, class:"btn-pib-dark d-block mx-auto text-center", style:"width: 160px;" %>
+
+      <% else %>
+        <div
+          id="map"
+          class="kita-contacts-map"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+        ></div>
+
+        <% @kitas.each do |k| %>
+          <div class="my-4">
+            <div class="d-flex">
+              <h3><%= link_to k.name, kindergarten_path(k), class: "pib-text-link" %></h3>
+              <% if k.any_reminder_today?(current_user) %>
+                <div class="reminder-badge reminder-badge-pink" data-toggle="tooltip" data-placement="bottom" title="You have a reminder for today!">
+                  <%= k.num_reminders(current_user) %>
+                </div>
+              <% elsif k.num_reminders(current_user) > 0 %>
+                <div class="reminder-badge reminder-badge-dark-blue" data-toggle="tooltip" data-placement="bottom" title="Reminders">
+                  <%= k.num_reminders(current_user) %>
+                </div>
+              <% end %>
+            </div>
+            <% k.kita_contacts.where(user: current_user).order(created_at: :desc).each do |kc| %>
+              <div class="kita-contacts d-flex">
+                <div class="kita-contacts-item col-sm-1 text-center">
+                  <% if kc.contact_type == "call" %>
+                    <i class="fas fa-phone"></i>
+                  <% elsif kc.contact_type == "email" %>
+                    <i class="fas fa-at"></i>
+                  <% elsif kc.contact_type == "visit" %>
+                    <i class="fas fa-walking"></i>
+                  <% elsif kc.contact_type == "other" %>
+                    <i class="fas fa-th-list"></i>
+                  <% end %>
+                </div>
+                <div class="kita-contacts-item col-sm-2">
+                  <%= kc.created_at.strftime("%a %e %B - %H:%M") %>
+                </div>
+                <div class="kita-contacts-item col-sm-9">
+                  <%= kc.note %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+
+      <% end %>
 
     <% end %>
   </div>

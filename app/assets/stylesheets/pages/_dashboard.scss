@@ -1,0 +1,30 @@
+.kita-reminder-entry {
+  border-bottom: 1px solid $light-gray;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  &:last-child {
+    border: none;
+  }
+  .entry-content {
+    color: $dark-blue;
+    font-size: 14px;
+  }
+}
+
+.reminder-badge {
+  color: white;
+  margin-left: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.reminder-badge-pink {
+  background-color: $pink;
+}
+
+.reminder-badge-dark-blue {
+  background-color: $dark-blue;
+}
+

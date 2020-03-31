@@ -19,7 +19,7 @@
 .navbar-links {
   display: flex;
   align-items: center;
-  > a {
+  a {
     color: $dark-blue;
     padding: 6px;
     transition: ease all 0.3s;
@@ -28,4 +28,16 @@
       opacity: 0.8;
     }
   }
+}
+
+.navbar-badge {
+  color: $pink;
+  font-size: 2px;
+  background-color: $pink;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+  top: 8px;
+  left: -5px;
 }
