@@ -5,7 +5,7 @@ class KitaRemindersController < ApplicationController
     @kita_reminder = KitaReminder.new(kita_reminder_params)
     @kita_reminder.kindergarten = @kindergarten
     @kita_reminder.user = current_user
-    @kita_reminder.save!
+    @kita_reminder.save
     redirect_to kindergarten_path(@kindergarten)
   end
 

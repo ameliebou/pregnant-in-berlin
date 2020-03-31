@@ -2,6 +2,8 @@ class KitaReminder < ApplicationRecord
   belongs_to :user
   belongs_to :kindergarten
 
+  validates :title, :date, presence: true
+
   def self.any_today?(current_user)
     kr = KitaReminder.coming(current_user)
     t = DateTime.now + 1.day

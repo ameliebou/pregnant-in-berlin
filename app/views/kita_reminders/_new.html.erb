@@ -4,10 +4,14 @@
     <div class="form-group">
       <%= f.input :title,
         input_html: { class: "form-control", placeholder: 'Add a title' },
-        label: false %>
+        label: false,
+        error: 'Title is mandatory' %>
     </div>
     <div class="form-group">
-      <%= f.input :date, as: :string, label: false , input_html: { class: "datepicker", placeholder: 'Pick day & time' } %>
+      <%= f.input :date, as: :string,
+      label: false,
+      input_html: { class: "datepicker", placeholder: 'Pick day & time' },
+      error: 'Date is mandatory' %>
     </div>
 
     <div class="form-group">
