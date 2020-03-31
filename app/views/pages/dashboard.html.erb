@@ -24,7 +24,13 @@
           <div class="collapse" id="collapseReminders">
             <% @kita_reminders.each do |kr| %>
               <div class="kita-reminder-entry">
-                <h4><span class="font-pink"><%= kr.count_down %></span> - <%= kr.date.strftime("%a %e %B - %H:%M") %></h4>
+                <h4>
+                  <% if kr.today? %>
+                    <span class="font-pink"><%= kr.count_down %></span>
+                  <% else %>
+                    <span class="font-dark-blue"><%= kr.count_down %></span>
+                  <% end %>
+                  - <%= kr.date.strftime("%a %e %B - %H:%M") %></h4>
                 <div class="entry-title"><%= kr.title %> | <i><%= kr.kindergarten.name %></i></div>
                 <div class="entry-content"><%= kr.content %></div>
               </div>
@@ -55,8 +61,12 @@
           <div class="my-4">
             <div class="d-flex">
               <h3><%= link_to k.name, kindergarten_path(k), class: "pib-text-link" %></h3>
-              <% if k.num_reminders(current_user) > 0  %>
-                <div class="reminder-badge" data-toggle="tooltip" data-placement="bottom" title="Number of reminders">
+              <% if k.any_reminder_today?(current_user) %>
+                <div class="reminder-badge reminder-badge-pink" data-toggle="tooltip" data-placement="bottom" title="You have a reminder for today!">
+                  <%= k.num_reminders(current_user) %>
+                </div>
+              <% elsif k.num_reminders(current_user) > 0 %>
+                <div class="reminder-badge reminder-badge-dark-blue" data-toggle="tooltip" data-placement="bottom" title="Reminders">
                   <%= k.num_reminders(current_user) %>
                 </div>
               <% end %>

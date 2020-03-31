@@ -12,7 +12,6 @@
 }
 
 .reminder-badge {
-  background-color: $pink;
   color: white;
   margin-left: 5px;
   width: 25px;
@@ -20,3 +19,12 @@
   border-radius: 50%;
   text-align: center;
 }
+
+.reminder-badge-pink {
+  background-color: $pink;
+}
+
+.reminder-badge-dark-blue {
+  background-color: $dark-blue;
+}
+
