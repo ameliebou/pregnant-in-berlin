@@ -26,19 +26,19 @@ class KitaReminder < ApplicationRecord
     return true if date < t
   end
 
-  def check_day(days)
-    if days == 0
+  def check_day(date, days)
+    if date.today?
       "Today, in"
-    elsif days == 1
+    elsif days <= 1
       "Tomorrow, in"
     else
       "In #{days} days,"
     end
   end
 
-  def count_down_formatted(days, hours, min_left, min)
+  def count_down_formatted(date, days, hours, min_left, min)
     return "In #{min} minute(s)!" if min < 60
-    days = check_day(days)
+    days = check_day(date, days)
     if hours > 0
       "#{days} #{hours} hour(s) and #{min_left} minute(s)"
     else
@@ -52,6 +52,6 @@ class KitaReminder < ApplicationRecord
     min_left = min % 1440
     hours = min_left / 60
     min_left = min_left % 60
-    count_down_formatted(days, hours, min_left, min)
+    count_down_formatted(date, days, hours, min_left, min)
   end
 end
